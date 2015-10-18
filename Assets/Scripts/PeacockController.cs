@@ -3,28 +3,48 @@ using System.Collections;
 
 public class PeacockController : MonoBehaviour {
     public Camera camera;
-	// Use this for initialization
-	void Start () {
-	
-	}
+    public float acceleration, jumpSpeed;
+    public float maxSpeed;
+    CharacterController controller;
+	Vector3 moveDirection;
+    // Use this for initialization
+	void Start () 
+    {
+	   controller = transform.GetComponent<CharacterController>();
+	   moveDirection = Vector3.zero;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 moveDirection = Vector3.zero;
-        
+                
         //Grounded Movement
-        if(GetComponent<CharacterController>().isGrounded) {
-            //GetComponent<CharacterController>().Move(new Vector3(0, 0, Input.GetAxis("Vertical Movement") * Time.deltaTime));
-            moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical Movement")*6f);
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= 8f;
-            //Jump
-            if (Input.GetButton("Jump")) {
-                moveDirection.y = 8f;
-            }
-        }
-        moveDirection.y -= 20f * Time.deltaTime;
-        GetComponent<CharacterController>().Move(moveDirection * Time.deltaTime);
+        if(controller.isGrounded) 
+        {   
+            Vector3 addedVel = (Input.GetAxisRaw("Vertical Movement")  * transform.forward) + (Input.GetAxisRaw("Horizontal Movement") * transform.right);
+            addedVel *= acceleration;
+            moveDirection += addedVel;
 
+            if(addedVel.magnitude == 0)
+            {
+                if(moveDirection.magnitude < 1)
+                moveDirection = Vector3.zero;
+                else
+                moveDirection*=.9f;
+            }
+
+            if(moveDirection.magnitude > maxSpeed)
+                moveDirection = moveDirection.normalized * maxSpeed;
+            
+            
+            if(Input.GetAxisRaw("Jump") > 0)
+            {
+                moveDirection.y = jumpSpeed;
+            }             
+        }
+
+        moveDirection.y += Physics.gravity.y * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
+        //if(controller.velocity.magnitude )
+        
     }
 }
