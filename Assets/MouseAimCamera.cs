@@ -10,20 +10,22 @@ public class MouseAimCamera : MonoBehaviour {
     void Start() 
     {
         offset = target.transform.position - transform.position;
-    	vertical = transform.eulerAngles.x;
+        vertical = transform.eulerAngles.x;
     }
     
-    void CheckCameraCollision()
+   /* void CheckCameraCollision()
     {
-	    Ray ray=new Ray(target.position, transform.position - target.position);
-	    RaycastHit hit = new RaycastHit();
-	    if(Physics.Raycast(ray, out hit, (transform.position - target.position).magnitude)){
+        Ray ray=new Ray(target.position, transform.position - target.position);
+        RaycastHit hit = new RaycastHit();
+        if(Physics.Raycast(ray, out hit, (transform.position - target.position).magnitude))
+        {
         
         if(hit.distance > offset)
             transform.position=ray.GetPoint(hit.distance - offset);
         else
             transform.position=target.position;
-    }
+        }
+    }*/
 
     void LateUpdate() 
     {

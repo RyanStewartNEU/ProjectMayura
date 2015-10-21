@@ -7,16 +7,17 @@ public class PeacockController : MonoBehaviour {
     public float maxSpeed;
     public float holdSpeed;
     CharacterController controller;
-	Vector3 moveDirection;
-    // Use this for initialization
-	void Start () 
+    Vector3 moveDirection;
+    // Use this for initialization    
+    void Start () 
     {
-	   controller = transform.GetComponent<CharacterController>();
-	   moveDirection = Vector3.zero;
+       controller = transform.GetComponent<CharacterController>();
+       moveDirection = Vector3.zero;
     }
-	
-	// Update is called once per frame
-	void Update () 
+
+
+    // Update is called once per frame
+    void Update () 
     {
                 
         // get current XZ movement
@@ -34,15 +35,15 @@ public class PeacockController : MonoBehaviour {
         //Grounded Movement
         if(controller.isGrounded) 
         {   
+
             if(addedVel.magnitude == 0) // if we arent moving
             {
                 if(moveDirection.magnitude < 1) // if we are close to stopped
-                moveDirection = Vector3.zero; // stop
+                    moveDirection = Vector3.zero; // stop
                 else // apply friction
-                moveDirection*=.8f;
+                    moveDirection*=.8f;
             }
 
-                  
             if(Input.GetAxisRaw("Jump") > 0) // if the jump button is pressed
             {
                 moveDirection.y = jumpSpeed; // apply jump to move
@@ -52,7 +53,7 @@ public class PeacockController : MonoBehaviour {
         {
             if(Input.GetAxisRaw("Jump") > 0 && moveDirection.y > 0) // if the jump button is being held
             {
-                moveDirection.y += holdSpeed; // move upwards slightly, for hold jumps
+                moveDirection.y += holdSpeed / 100f; // move upwards slightly, for hold jumps
             }   
         }
 
