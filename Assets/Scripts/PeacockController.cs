@@ -4,18 +4,27 @@ using System.Collections;
 public class PeacockController : MonoBehaviour {
     public Camera camera;
     public Transform model;
+    public Transform lookTransform;
     public float acceleration, jumpSpeed;
     public float maxSpeed;
-    public float holdSpeed;
+    public float holdTime;
+    public float friction;
+    public float deltaRotation;
+    public float gravity;
+    
     CharacterController controller;
+    Vector3 lookDir;
     Vector3 moveDirection;
     Vector2 lastPosition;
+    float jumpTime;
+    bool holdingJump;
     // Use this for initialization    
     void Start () 
     {
        controller = transform.GetComponent<CharacterController>();
        moveDirection = Vector3.zero;
        lastPosition = transform.position;
+       holdingJump = false;
     }
 
 
@@ -40,6 +49,11 @@ public class PeacockController : MonoBehaviour {
         Vector3 addedVel = (xAxis  * camera.transform.forward) + yAx;
         addedVel *= acceleration; // apply accelration rate
         addedVel.y = 0;
+
+        float speed = new Vector2(xAxis,yAxis).magnitude;
+        if(controller.isGrounded)
+        moveDirection = addedVel * speed * maxSpeed;
+        else
         moveDirection += addedVel; // add to move
         
 
@@ -49,6 +63,7 @@ public class PeacockController : MonoBehaviour {
             XZ = XZ.normalized * maxSpeed;
             moveDirection = new Vector3(XZ.x,moveDirection.y,XZ.y); // scale to move at top speed
         }
+
         //Grounded Movement
         if(controller.isGrounded) 
         {   
@@ -58,32 +73,48 @@ public class PeacockController : MonoBehaviour {
                 if(moveDirection.magnitude < 1) // if we are close to stopped
                     moveDirection = Vector3.zero; // stop
                 else // apply friction
-                    moveDirection*=.7f;
+                    moveDirection*= friction;
             }
            
             if(Input.GetButtonDown("Jump")) // if the jump button is pressed
             {
                 moveDirection.y = jumpSpeed; // apply jump to move
+                jumpTime = Time.time;
+                holdingJump = true;
             }             
         }
         else
         {
-            if(Input.GetButton("Jump") && moveDirection.y > 0) // if the jump button is being held
+            if(!Input.GetButton("Jump") ||  jumpTime < Time.time - holdTime) // if the jump button is being held
             {
-                moveDirection.y += holdSpeed / 50f; // move upwards slightly, for hold jumps
-            }   
+                holdingJump = false;
+            }
+
+            if(holdingJump)
+            {
+                moveDirection.y = jumpSpeed; // move upwards slightly, for hold jumps 
+            }
+            
         }
 
-        moveDirection.y += Physics.gravity.y * Time.deltaTime;
+        moveDirection.y -= gravity;
       
+        if(new Vector2(moveDirection.x,moveDirection.z).magnitude != 0)
+        {
+            
+            
+            Vector2 dir = new Vector2(moveDirection.x,moveDirection.z).normalized;
+            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x,0,dir.y), deltaRotation * Time.deltaTime, 0.0F);
+            lookTransform.position = model.position + lookDir;
+            //float ang = Mathf.Atan2(dir.y, dir.x);
+          // Debug.Log(dir + " " +  new Vector2(newDir.x, newDir.z));
+          Debug.Log(lookDir + " " + dir);
+           model.LookAt(lookTransform);
+        }
+
         controller.Move(moveDirection * Time.deltaTime);
 
-        if(lastPosition != new Vector2(transform.position.x,transform.position.z))
-        {
-            Vector2 dir = new Vector2(transform.position.x - lastPosition.x, transform.position.z - lastPosition.y);
-            float ang = Mathf.Atan2(dir.y, dir.x);
-            model.eulerAngles = new Vector3(model.eulerAngles.x,Mathf.Rad2Deg * -ang + 90, model.eulerAngles.z);
-        }
+        
     }
 
     public void LateUpdate()
