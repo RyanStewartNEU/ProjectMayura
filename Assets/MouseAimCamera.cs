@@ -5,12 +5,16 @@ public class MouseAimCamera : MonoBehaviour {
     public GameObject target;
     public float rotateSpeed = 5;
     float vertical;
+    float horizontal;
+
     Vector3 offset;
+    Vector2 axis;
      
     void Start() 
     {
         offset = target.transform.position - transform.position;
         vertical = transform.eulerAngles.x;
+        horizontal = transform.eulerAngles.y;
     }
     
    /* void CheckCameraCollision()
@@ -27,15 +31,31 @@ public class MouseAimCamera : MonoBehaviour {
         }
     }*/
 
+    void Update()
+    {
+        axis = Vector2.zero;
+        if(Mathf.Abs(Input.GetAxis("Horizontal Camera")) > 0.3f)
+        {
+            axis.x = Input.GetAxis("Horizontal Camera");
+        }
+
+        if(Mathf.Abs(Input.GetAxis("Vertical Camera")) > 0.3f)
+        {
+            axis.y = Input.GetAxis("Vertical Camera");
+        }
+    }
+
     void LateUpdate() 
     {
-        float horizontal = Input.GetAxis("Horizontal Camera") * rotateSpeed;
-        vertical += Input.GetAxis("Vertical Camera") * rotateSpeed;
-        target.transform.Rotate(0, horizontal, 0);
+        if(vertical + axis.y * rotateSpeed < 20 && vertical + axis.y * rotateSpeed > -30)
+        vertical += axis.y * rotateSpeed;
+        
+        horizontal += axis.x * rotateSpeed;
+        //target.transform.Rotate(0, , 0);
        
-        Quaternion rotation = Quaternion.Euler(vertical, target.transform.eulerAngles.y, 0);
-        transform.position = target.transform.position - (rotation * offset);
-         
+        Quaternion rotation = Quaternion.Euler(vertical,horizontal, 0);
+        transform.position = target.transform.position - (rotation * offset); 
         transform.LookAt(target.transform);
+           
     }
 }
