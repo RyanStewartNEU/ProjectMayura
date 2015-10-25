@@ -11,7 +11,8 @@ public class PeacockController : MonoBehaviour {
     public float friction;
     public float deltaRotation;
     public float gravity;
-    
+    public float rate;
+    Vector2 prevAxis;
     CharacterController controller;
     Vector3 lookDir;
     Vector3 moveDirection;
@@ -46,28 +47,44 @@ public class PeacockController : MonoBehaviour {
         // get current XZ movement
         Vector3 yAx = (yAxis * camera.transform.right);
         yAx.y = 0;
-        Vector3 addedVel = (xAxis  * camera.transform.forward) + yAx;
-        addedVel *= acceleration; // apply accelration rate
+        Vector3 addedVel = (xAxis  * camera.transform.forward) + yAx;  
         addedVel.y = 0;
 
-        float speed = new Vector2(xAxis,yAxis).magnitude;
-        if(controller.isGrounded)
-        moveDirection = addedVel * speed * maxSpeed;
-        else
-        moveDirection += addedVel; // add to move
+        float speed = new Vector2(xAxis,yAxis).magnitude * rate;
         
 
-        Vector2 XZ  = new Vector2(moveDirection.x,moveDirection.z);
-        if(XZ.magnitude > maxSpeed) //if we are moving faster than the top speed
+        if(controller.isGrounded)
         {
-            XZ = XZ.normalized * maxSpeed;
-            moveDirection = new Vector3(XZ.x,moveDirection.y,XZ.y); // scale to move at top speed
+            Vector2 axisChange = new Vector2(xAxis,yAxis) - prevAxis;
+            if(Mathf.Abs(axisChange.x) > 1  || Mathf.Abs(axisChange.y) > 1 && prevAxis.magnitude > 0.25)
+            {
+                Debug.Log("went");
+                moveDirection += addedVel * speed * 4;     
+            }
+            else
+            moveDirection += addedVel * speed;
+        }
+        else
+        {
+            addedVel *= acceleration; // apply accelration rate
+            moveDirection += addedVel; // add to move
+        } 
+
+        
+        Vector2 XZ  = new Vector2(moveDirection.x,moveDirection.z);
+        float scale = new Vector2(xAxis,yAxis).magnitude / Mathf.Sqrt(2);
+        scale *= scale;
+        if(scale < 0.3f) scale = 0.3f;
+        if(XZ.magnitude > maxSpeed * scale) //if we are moving faster than the top speed
+        {
+            XZ = XZ.normalized * maxSpeed * scale;
+            Vector3 wantedMovement = new Vector3(XZ.x,moveDirection.y,XZ.y);
+            moveDirection =  wantedMovement;//Vector3.Slerp(moveDirection,wantedMovement,0.5f);// scale to move at top speed
         }
 
         //Grounded Movement
         if(controller.isGrounded) 
         {   
-
             if(addedVel.magnitude == 0) // if we arent moving
             {
                 if(moveDirection.magnitude < 1) // if we are close to stopped
@@ -94,12 +111,12 @@ public class PeacockController : MonoBehaviour {
             {
                 moveDirection.y = jumpSpeed; // move upwards slightly, for hold jumps 
             }
-            
+             moveDirection.y -= gravity;  
         }
-
-        moveDirection.y -= gravity;
+        
+       
       
-        if(new Vector2(moveDirection.x,moveDirection.z).magnitude != 0)
+        if(new Vector2(moveDirection.x,moveDirection.z).magnitude != 0 && controller.isGrounded)
         {
             
             
@@ -108,17 +125,20 @@ public class PeacockController : MonoBehaviour {
             lookTransform.position = model.position + lookDir;
             //float ang = Mathf.Atan2(dir.y, dir.x);
           // Debug.Log(dir + " " +  new Vector2(newDir.x, newDir.z));
-          Debug.Log(lookDir + " " + dir);
+         // Debug.Log(lookDir + " " + dir);
            model.LookAt(lookTransform);
         }
-
+        
+        prevAxis  = new Vector2(xAxis,yAxis);      
         controller.Move(moveDirection * Time.deltaTime);
 
         
+
     }
 
     public void LateUpdate()
     {
         lastPosition = new Vector2(transform.position.x,transform.position.z);
+  
     }
 }
