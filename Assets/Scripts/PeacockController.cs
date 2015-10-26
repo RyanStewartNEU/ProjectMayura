@@ -58,7 +58,6 @@ public class PeacockController : MonoBehaviour {
             Vector2 axisChange = new Vector2(xAxis,yAxis) - prevAxis;
             if(Mathf.Abs(axisChange.x) > 1  || Mathf.Abs(axisChange.y) > 1 && prevAxis.magnitude > 0.25)
             {
-                Debug.Log("went");
                 moveDirection += addedVel * speed * 4;     
             }
             else
@@ -121,7 +120,7 @@ public class PeacockController : MonoBehaviour {
             
             
             Vector2 dir = new Vector2(moveDirection.x,moveDirection.z).normalized;
-            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x,0,dir.y), deltaRotation * Time.deltaTime, 0.0F);
+            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x,0,dir.y), deltaRotation * Time.deltaTime, 1F);
             lookTransform.position = model.position + lookDir;
             //float ang = Mathf.Atan2(dir.y, dir.x);
           // Debug.Log(dir + " " +  new Vector2(newDir.x, newDir.z));

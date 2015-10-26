@@ -4547,9 +4547,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429200905}
-  - 114: {fileID: 429200906}
   - 143: {fileID: 429200907}
   - 65: {fileID: 429200908}
+  - 114: {fileID: 429200909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4571,28 +4571,6 @@ Transform:
   - {fileID: 553949473}
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!114 &429200906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 429200904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e74bd4eef6c61f4b8a0ff1f84005ab4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 553949472}
-  model: {fileID: 1890138666}
-  lookTransform: {fileID: 1862281582}
-  acceleration: .600000024
-  jumpSpeed: 15
-  maxSpeed: 15
-  holdTime: .300000012
-  friction: .800000012
-  deltaRotation: 12
-  gravity: 1.10000002
-  rate: 8
 --- !u!143 &429200907
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4622,6 +4600,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: .200000003, z: .200000003}
   m_Center: {x: 0, y: .100000001, z: 2.25}
+--- !u!114 &429200909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 429200904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ee6ff55b4ff41769a43e63bbd8c2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 15
+  runSpeed: 30
+  enableRunning: 0
+  jumpSpeed: 15
+  gravity: 50
+  slideWhenOverSlopeLimit: 1
+  slideOnTaggedObjects: 0
+  slideSpeed: 15
+  airControl: 1
+  antiBumpFactor: .75
+  antiBunnyHopFactor: 1
+  holdTime: .300000012
+  model: {fileID: 1890138666}
+  lookTransform: {fileID: 1862281582}
+  deltaRotation: 12
 --- !u!43 &443379197
 Mesh:
   m_ObjectHideFlags: 0
