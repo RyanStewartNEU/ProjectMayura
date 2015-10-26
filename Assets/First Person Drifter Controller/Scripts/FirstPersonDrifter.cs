@@ -59,7 +59,7 @@ public class FirstPersonDrifter: MonoBehaviour
     private float startJumpTime;
     private bool holdingJump;
     Vector3 lookDir;
-
+    Animator anim;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -68,6 +68,7 @@ public class FirstPersonDrifter: MonoBehaviour
         rayDistance = controller.height * .5f + controller.radius;
         slideLimit = controller.slopeLimit - .1f;
         jumpTimer = antiBunnyHopFactor;
+        anim = transform.GetComponentInChildren<Animator>();
     }
  
     void FixedUpdate() {
@@ -75,8 +76,13 @@ public class FirstPersonDrifter: MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
- 
+        
+        if(anim.GetBool("jump"))
+        {
+             anim.SetBool("jump", false);
+        }
         if (grounded) {
+            
             bool sliding = false;
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,
             // because that interferes with step climbing amongst other annoyances
@@ -121,12 +127,16 @@ public class FirstPersonDrifter: MonoBehaviour
  
             // Jump! But only if the jump button has been released and player has been grounded for a given number of frames
             if (!Input.GetButton("Jump"))
+            {
                 jumpTimer++;
+               
+            }
             else if (jumpTimer >= antiBunnyHopFactor) {
                 moveDirection.y = jumpSpeed;
                 jumpTimer = 0;
                 startJumpTime = Time.time;
                 holdingJump = true;
+                anim.SetBool("jump", true);
             }
         }
         else {
@@ -160,12 +170,11 @@ public class FirstPersonDrifter: MonoBehaviour
  
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(moveDirection * Time.deltaTime) & CollisionFlags.Below) != 0;
-        
-        if(new Vector2(moveDirection.x,moveDirection.z).magnitude != 0 && grounded)
+        float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
+        if(turnSpeed != 0)
         {          
-            Debug.Log("running");
             Vector2 dir = new Vector2(moveDirection.x,moveDirection.z).normalized;
-            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x,0,dir.y), deltaRotation * Time.deltaTime, 1F);
+            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x,0,dir.y), deltaRotation * Time.deltaTime * (turnSpeed / speed) , 1F);
             lookTransform.position = model.position + lookDir;
             model.LookAt(lookTransform);
         }
