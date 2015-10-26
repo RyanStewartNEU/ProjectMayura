@@ -49,7 +49,6 @@ public class PeacockController : MonoBehaviour {
             Vector2 axisChange = axisVector - prevAxis;
 
             if (went(axisChange)) {
-                Debug.Log("went");
                 moveDirection += MOVEMENT_COEFFICIENT * addedVel * speed;     
             } else {
             	moveDirection += addedVel * speed;
@@ -80,7 +79,7 @@ public class PeacockController : MonoBehaviour {
       
         if (moveDirectionVector.magnitude > 0 && controller.isGrounded) {
             Vector2 dir = moveDirectionVector.normalized;
-            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x, 0, dir.y), deltaRotation * Time.deltaTime, 0F);
+            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x, 0, dir.y), deltaRotation * Time.deltaTime, 1F);
             lookTransform.position = model.position + lookDir;
            	model.LookAt(lookTransform);
         }
