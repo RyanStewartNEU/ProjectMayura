@@ -4486,9 +4486,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 15
   runSpeed: 30
+  canDoubleJump: 1
+  maxMovementPerFrame: 1
+  maxMovement: 15
+  maxDownwardSpeed: 20
+  doubleJumpSpeed: 16
   enableRunning: 0
   jumpSpeed: 15
-  gravity: 50
+  gravity: .800000012
   slideWhenOverSlopeLimit: 1
   slideOnTaggedObjects: 0
   slideSpeed: 15
@@ -4496,6 +4501,7 @@ MonoBehaviour:
   antiBumpFactor: .75
   antiBunnyHopFactor: 1
   holdTime: .300000012
+  jumpHold: .100000001
   model: {fileID: 1890138666}
   lookTransform: {fileID: 1862281582}
   deltaRotation: 12

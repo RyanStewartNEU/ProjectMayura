@@ -10,7 +10,11 @@ public class FirstPersonDrifter: MonoBehaviour
 {
     public float walkSpeed = 6.0f;
     public float runSpeed = 10.0f;
- 
+    public bool canDoubleJump;
+    public float maxMovementPerFrame;
+    public float maxMovement;
+    public float maxDownwardSpeed;
+    public float doubleJumpSpeed;
     // If true, diagonal speed (when strafing + moving forward or back) can't exceed normal move speed; otherwise it's about 1.4 times faster
     private bool limitDiagonalSpeed = true;
  
@@ -39,7 +43,7 @@ public class FirstPersonDrifter: MonoBehaviour
     // Player must be grounded for at least this many physics frames before being able to jump again; set to 0 to allow bunny hopping
     public int antiBunnyHopFactor = 1;
     public float holdTime;
-    
+    public float jumpHold;
     public Transform model;
     public Transform lookTransform;
     public float deltaRotation;
@@ -58,6 +62,10 @@ public class FirstPersonDrifter: MonoBehaviour
     private int jumpTimer;
     private float startJumpTime;
     private bool holdingJump;
+    private Vector3 actualMovement;
+    private bool doubleJumped;
+    private bool jumpingUp,jumpingDown;
+    private float jumpTimeUp,jumpTimeDown;
     Vector3 lookDir;
     Animator anim;
     void Start()
@@ -69,6 +77,8 @@ public class FirstPersonDrifter: MonoBehaviour
         slideLimit = controller.slopeLimit - .1f;
         jumpTimer = antiBunnyHopFactor;
         anim = transform.GetComponentInChildren<Animator>();
+        actualMovement = new Vector3(0,0,0);
+        Debug.Log(anim.hasRootMotion);
     }
  
     void FixedUpdate() {
@@ -77,12 +87,14 @@ public class FirstPersonDrifter: MonoBehaviour
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
         
-        if(anim.GetBool("jump"))
+        
+        if (grounded) 
         {
-             anim.SetBool("jump", false);
-        }
-        if (grounded) {
-            
+            if(anim.GetBool("jump"))
+            {
+                 anim.SetBool("jump", false);
+            }
+
             bool sliding = false;
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,
             // because that interferes with step climbing amongst other annoyances
@@ -119,7 +131,8 @@ public class FirstPersonDrifter: MonoBehaviour
                 playerControl = false;
             }
             // Otherwise recalculate moveDirection directly from axes, adding a bit of -y to avoid bumping down inclines
-            else {
+            else 
+            {               
                 moveDirection = new Vector3(inputX * inputModifyFactor * Mathf.Abs(inputX) , -antiBumpFactor, inputY * inputModifyFactor * Mathf.Abs(inputY) );
                 moveDirection = translatedToCam(moveDirection);
                 playerControl = true;
@@ -129,24 +142,34 @@ public class FirstPersonDrifter: MonoBehaviour
             if (!Input.GetButton("Jump"))
             {
                 jumpTimer++;
-               
+                                   
             }
-            else if (jumpTimer >= antiBunnyHopFactor) {
+            else if (jumpTimer >= antiBunnyHopFactor) 
+            {
+                
+                jumpTimeUp = 0;
+                jumpTimeDown = 0;
+                jumpingUp = true;
+                grounded = false;
                 moveDirection.y = jumpSpeed;
                 jumpTimer = 0;
                 startJumpTime = Time.time;
+                doubleJumped = false;
                 holdingJump = true;
                 anim.SetBool("jump", true);
+
             }
         }
         else {
 
+            // if you are holding the jump button, move upwards for a factor of a second
             if(holdingJump && Input.GetButton("Jump") && Time.time - startJumpTime < holdTime)
             {
                 moveDirection.y = jumpSpeed;
             }
             else
             {
+                moveDirection.y = 0;
                 holdingJump = false;
             }
             // If we stepped over a cliff or something, set the height at which we started falling
@@ -154,9 +177,23 @@ public class FirstPersonDrifter: MonoBehaviour
                 falling = true;
                 fallStartLevel = myTransform.position.y;
             }
- 
+
+            if(jumpingDown)
+            {
+                jumpTimeDown++;
+            }
+            if(jumpingUp)
+            {
+                jumpTimeUp++;
+                if(actualMovement.y < 0)
+                {
+                    jumpingDown = true;
+                    jumpingUp = false;
+                }
+            }
             // If air control is allowed, check movement but don't touch the y component
-            if (airControl && playerControl) {
+            if (airControl && playerControl) 
+            {
                 moveDirection.x = inputX  * inputModifyFactor;
                 moveDirection.z = inputY  * inputModifyFactor;
                 float storeY = moveDirection.y;
@@ -164,12 +201,59 @@ public class FirstPersonDrifter: MonoBehaviour
                 moveDirection.y = storeY;
             }
         }
- 
-        // Apply gravity
-        moveDirection.y -= gravity * Time.deltaTime;
- 
+         
+        Vector2 moveDirectionXY = new Vector2(moveDirection.x,moveDirection.z);
+        Vector2 actualMovementXY = new Vector2(actualMovement.x,actualMovement.z);
+
+        Vector2 mdir = moveDirectionXY - actualMovementXY;
+
+        if(mdir.magnitude > maxMovementPerFrame)
+        {
+            mdir = mdir.normalized * maxMovementPerFrame;
+        }
+
+        actualMovement +=new Vector3(mdir.x,moveDirection.y, mdir.y);
+                
+        actualMovementXY = new Vector2(actualMovement.x,actualMovement.z);
+        if(actualMovementXY.magnitude > maxMovement)
+        {
+            actualMovementXY = actualMovementXY.normalized * maxMovement; 
+            actualMovement = new Vector3(actualMovementXY.x,actualMovement.y,actualMovementXY.y);
+        }
+        
+        if(grounded)
+        {
+            actualMovement.y = 0;
+            if(jumpingDown)
+            {
+                jumpingDown = false;
+            }
+            doubleJumped = true;
+        }
+        else
+        {
+            if(!holdingJump)
+            {
+                if(canDoubleJump && !doubleJumped && Input.GetButtonDown("Jump"))
+                {
+                    actualMovement = moveDirection;
+                    actualMovement.y = doubleJumpSpeed;
+                    doubleJumped = true;
+                }
+                else
+                actualMovement.y -= gravity;
+            }
+            else
+            actualMovement.y = moveDirection.y;
+        }
+        
+        
+        if(actualMovement.y < -maxDownwardSpeed)
+        {
+            actualMovement.y = -maxDownwardSpeed;
+        }
         // Move the controller, and set grounded true or false depending on whether we're standing on something
-        grounded = (controller.Move(moveDirection * Time.deltaTime) & CollisionFlags.Below) != 0;
+        grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
         if(turnSpeed != 0)
         {          
