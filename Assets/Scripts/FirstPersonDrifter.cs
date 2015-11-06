@@ -66,6 +66,8 @@ public class FirstPersonDrifter: MonoBehaviour
     private bool doubleJumped;
     private bool jumpingUp,jumpingDown;
     private float jumpTimeUp,jumpTimeDown;
+
+    int jumpCheckWait;
     Vector3 lookDir;
     Animator anim;
     void Start()
@@ -87,14 +89,13 @@ public class FirstPersonDrifter: MonoBehaviour
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
         
-        
+        if(anim.GetBool("jump"))
+        {
+             anim.SetBool("jump", false);
+        }
+       
         if (grounded) 
         {
-            if(anim.GetBool("jump"))
-            {
-                 anim.SetBool("jump", false);
-            }
-
             bool sliding = false;
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,
             // because that interferes with step climbing amongst other annoyances
@@ -156,6 +157,7 @@ public class FirstPersonDrifter: MonoBehaviour
                 startJumpTime = Time.time;
                 doubleJumped = false;
                 holdingJump = true;
+                jumpCheckWait = 3;
                 anim.SetBool("jump", true);
 
             }
