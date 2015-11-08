@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MouseAimCamera : MonoBehaviour {
@@ -18,6 +18,7 @@ public class MouseAimCamera : MonoBehaviour {
         offset = target.transform.position - transform.position;
         vertical = transform.eulerAngles.x;
         horizontal = transform.eulerAngles.y;
+        Debug.Log(offset);
     }
     
    /* void CheckCameraCollision()
@@ -48,13 +49,9 @@ public class MouseAimCamera : MonoBehaviour {
         }
         
         if(Input.GetKeyDown(KeyCode.JoystickButton8)  && !autoRotating)
-        {
-            
+        {            
             autoRotating = true;
             startRot = transform.localEulerAngles;
-  
-
-            //Debug.Log("From: " + startRot + " To: " + rotateTo);
             tDist = 0;
         }
     }
@@ -83,7 +80,7 @@ public class MouseAimCamera : MonoBehaviour {
             return rotateTo;
 
     }
-    void LateUpdate() 
+    void FixedUpdate() 
     {
         
         if(!autoRotating)
@@ -102,7 +99,7 @@ public class MouseAimCamera : MonoBehaviour {
                  vertical = newRot.x;
                  horizontal = newRot.y;
                  //float diff = (startRot - getFilteredRotation()).magnitude; 
-                 tDist += (autoRotateSpeed * Time.deltaTime);  
+                 tDist += (autoRotateSpeed * Time.deltaTime * 10);  
                                 
             }
             else
@@ -111,11 +108,11 @@ public class MouseAimCamera : MonoBehaviour {
             }
         }
         //target.transform.Rotate(0, , 0);
-        Debug.Log(vertical);
         if(vertical > 180)
         {
             vertical -=360;
         }
+        
         Quaternion rotation = Quaternion.Euler(vertical,horizontal, 0);
         transform.position = target.transform.position - (rotation * offset); 
         transform.LookAt(target.transform);

@@ -89,12 +89,12 @@ public class FirstPersonDrifter: MonoBehaviour
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
         
-        if(anim.GetBool("jump"))
+        /*if(anim.GetBool("jump"))
         {
              anim.SetBool("jump", false);
-        }
+        }*/
        
-        if (grounded) 
+        if (grounded) // if you are on the ground 
         {
             bool sliding = false;
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,
@@ -254,6 +254,8 @@ public class FirstPersonDrifter: MonoBehaviour
         {
             actualMovement.y = -maxDownwardSpeed;
         }
+        float tempWalking = actualMovement.magnitude * Time.deltaTime;
+        anim.SetFloat("walking" , tempWalking);
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
