@@ -57,9 +57,8 @@ public class SmoothLookAt : MonoBehaviour {
 	{
  		movement = Vector2.zero;
  		getAxises();
-		float yAng = ((axis.y * rotateSpeed) * Mathf.Rad2Deg) + _myTransform.eulerAngles.y;
-		if(yAng < 30 && yAng > -50)
-        movement.y = axis.y * rotateSpeed;
+		float yAng = (axis.y * rotateSpeed) + _myTransform.eulerAngles.x;
+	    movement.y = axis.y * rotateSpeed;
             
         movement.x = axis.x * rotateSpeed;
 	}
@@ -92,7 +91,7 @@ public class SmoothLookAt : MonoBehaviour {
 				
 				dir += transform.right * (movement.x * Time.deltaTime);
 				
-				dir += transform.forward * (movement.y * Time.deltaTime);
+				dir += transform.up * (movement.y * Time.deltaTime * .3f);
 				//Quaternion fromTo = new Quaternion(0,0,0,0);
 				//fromTo.SetLookRotation(-dir);
 				//Vector3 eulers = fromTo.eulerAngles;
