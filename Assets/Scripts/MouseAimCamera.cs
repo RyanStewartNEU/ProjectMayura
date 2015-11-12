@@ -4,21 +4,24 @@ using System.Collections;
 public class MouseAimCamera : MonoBehaviour {
     public GameObject target;
     public float rotateSpeed = 5;
+    public float movementDistance;
     public float autoRotateSpeed;
     public float verticleReset;
     float vertical;
     float horizontal;
     bool autoRotating;
+    bool connected;
     Vector3 startRot;
-    Vector3 offset;
+    public Vector3 offset;
     Vector2 axis;
     float tDist;
     void Start() 
     {
         offset = target.transform.position - transform.position;
+        offset.z*= -1;
         vertical = transform.eulerAngles.x;
         horizontal = transform.eulerAngles.y;
-        Debug.Log(offset);
+        connected = true;
     }
     
    /* void CheckCameraCollision()
@@ -34,7 +37,10 @@ public class MouseAimCamera : MonoBehaviour {
             transform.position=target.position;
         }
     }*/
-
+    public float XZDistance(Vector3 pos1, Vector3 pos2)
+    {
+        return Vector2.Distance(new Vector2(pos1.x,pos1.z),new Vector2(pos2.x,pos2.z));
+    }
     void Update()
     {
         axis = Vector2.zero;

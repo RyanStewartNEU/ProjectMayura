@@ -11,6 +11,7 @@ public class FirstPersonDrifter: MonoBehaviour
     public float walkSpeed = 6.0f;
     public float runSpeed = 10.0f;
     public bool canDoubleJump;
+    public Camera cam;
     public float maxMovementPerFrame;
     public float maxMovement;
     public float maxDownwardSpeed;
@@ -81,6 +82,8 @@ public class FirstPersonDrifter: MonoBehaviour
         anim = transform.GetComponentInChildren<Animator>();
         actualMovement = new Vector3(0,0,0);
         Debug.Log(anim.hasRootMotion);
+        if(cam == null)
+        cam = Camera.main;
     }
  
     void FixedUpdate() {
@@ -236,7 +239,7 @@ public class FirstPersonDrifter: MonoBehaviour
         {
             if(!holdingJump)
             {
-                if(canDoubleJump && !doubleJumped && Input.GetButtonDown("Jump"))
+                if(canDoubleJump && !doubleJumped && Input.GetButtonDown("Jump") && actualMovement.y <=0)
                 {
                     actualMovement = moveDirection;
                     actualMovement.y = doubleJumpSpeed;
@@ -290,9 +293,9 @@ public class FirstPersonDrifter: MonoBehaviour
     Vector3 translatedToCam(Vector3 move)
     {
             move = myTransform.TransformDirection(move) * speed;
-            Vector3 zAx = (move.x * Camera.main.transform.right);
+            Vector3 zAx = (move.x * cam.transform.right);
             zAx.y = 0;
-            move = (move.z  * Camera.main.transform.forward) + zAx;  
+            move = (move.z  * cam.transform.forward) + zAx;  
             move.y = 0;
             return move;
     }
