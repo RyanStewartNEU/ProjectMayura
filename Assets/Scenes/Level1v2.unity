@@ -167,6 +167,8 @@ MonoBehaviour:
   autoRotateSpeed: .5
   verticleReset: -25
   offset: {x: 0, y: 0, z: 0}
+  minOffset: {x: -4, y: -4, z: -4}
+  maxOffset: {x: 4, y: 4, z: 4}
 --- !u!81 &40043767
 AudioListener:
   m_ObjectHideFlags: 0
