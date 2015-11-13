@@ -8,6 +8,7 @@ using System.Collections;
 [RequireComponent (typeof (CharacterController))]
 public class FirstPersonDrifter: MonoBehaviour
 {
+    public Transform lastCheckpoint;
     public float walkSpeed = 6.0f;
     public float runSpeed = 10.0f;
     public bool canDoubleJump;
@@ -278,6 +279,17 @@ public class FirstPersonDrifter: MonoBehaviour
     }
     // Store point that we're in contact with for use in FixedUpdate if needed
     void OnControllerColliderHit (ControllerColliderHit hit) {
+        if(hit.transform.tag == "FalloutCatcher")
+        {
+            if(lastCheckpoint != null)
+            {
+                Vector3 cameraOffset = this.transform.position - cam.transform.position;
+                this.transform.position = lastCheckpoint.position;
+                this.transform.rotation = lastCheckpoint.rotation;
+                cam.transform.position = lastCheckpoint.position + cameraOffset;
+                cam.transform.rotation = lastCheckpoint.rotation;
+            }
+        }
         contactPoint = hit.point;
     }
  
