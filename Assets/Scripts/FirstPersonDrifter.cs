@@ -113,6 +113,62 @@ public class FirstPersonDrifter: MonoBehaviour
         purpleFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
         pinkFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
 
+        //Check PlayerPrefs for existing feather
+        if (PlayerPrefs.HasKey("RedFeather"))
+        {
+            if (PlayerPrefs.GetInt("RedFeather") == 1)
+            {
+                setRedFeather(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("OrangeFeather"))
+        {
+            if (PlayerPrefs.GetInt("OrangeFeather") == 1)
+            {
+                setOrangeFeather(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("YellowFeather"))
+        {
+            if (PlayerPrefs.GetInt("YellowFeather") == 1)
+            {
+                setYellowFeather(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("GreenFeather"))
+        {
+            if (PlayerPrefs.GetInt("GreenFeather") == 1)
+            {
+                setGreenFeather(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("BlueFeather"))
+        {
+            if (PlayerPrefs.GetInt("BlueFeather") == 1)
+            {
+                setBlueFeather(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("PurpleFeather"))
+        {
+            if (PlayerPrefs.GetInt("PurpleFeather") == 1)
+            {
+                setPurpleFeather(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("PinkFeather"))
+        {
+            if (PlayerPrefs.GetInt("PinkFeather") == 1)
+            {
+                setPinkFeather(true);
+            }
+        }
+        if (PlayerPrefs.HasKey("WhiteFeathers"))
+        {
+            whiteFeatherCount = PlayerPrefs.GetInt("WhiteFeathers");
+        }
+
+
         controller = GetComponent<CharacterController>();
         myTransform = transform;
         speed = walkSpeed;
@@ -136,9 +192,7 @@ public class FirstPersonDrifter: MonoBehaviour
         {
              anim.SetBool("jump", false);
         }*/
-        
-        
-
+       
         if (grounded) // if you are on the ground 
         {
             bool sliding = false;
@@ -165,7 +219,7 @@ public class FirstPersonDrifter: MonoBehaviour
  
             if( enableRunning )
             {
-                maxMovement = Input.GetButton("Run")? runSpeed : walkSpeed;
+            	speed = Input.GetButton("Run")? runSpeed : walkSpeed;
             }
  
             // If sliding (and it's allowed), or if we're on an object tagged "Slide", get a vector pointing down the slope we're on
@@ -179,7 +233,7 @@ public class FirstPersonDrifter: MonoBehaviour
             // Otherwise recalculate moveDirection directly from axes, adding a bit of -y to avoid bumping down inclines
             else 
             {               
-                moveDirection = new Vector3(inputX * inputModifyFactor , -antiBumpFactor, inputY * inputModifyFactor  ) * 5;
+                moveDirection = new Vector3(inputX * inputModifyFactor * Mathf.Abs(inputX) , -antiBumpFactor, inputY * inputModifyFactor * Mathf.Abs(inputY) );
                 moveDirection = translatedToCam(moveDirection);
                 playerControl = true;
             }
@@ -241,8 +295,8 @@ public class FirstPersonDrifter: MonoBehaviour
             // If air control is allowed, check movement but don't touch the y component
             if (airControl && playerControl) 
             {
-                moveDirection.x = inputX  * inputModifyFactor * 5;
-                moveDirection.z = inputY  * inputModifyFactor * 5;
+                moveDirection.x = inputX  * inputModifyFactor;
+                moveDirection.z = inputY  * inputModifyFactor;
                 float storeY = moveDirection.y;
                 moveDirection = translatedToCam(moveDirection) / 1.5f;
                 moveDirection.y = storeY;
@@ -253,14 +307,15 @@ public class FirstPersonDrifter: MonoBehaviour
         Vector2 actualMovementXY = new Vector2(actualMovement.x,actualMovement.z);
 
         Vector2 mdir = moveDirectionXY - actualMovementXY;
+
         if(mdir.magnitude > maxMovementPerFrame)
         {
             mdir = mdir.normalized * maxMovementPerFrame;
         }
+
         actualMovement +=new Vector3(mdir.x,moveDirection.y, mdir.y);
                 
         actualMovementXY = new Vector2(actualMovement.x,actualMovement.z);
-        Debug.Log(actualMovementXY.magnitude);
         if(actualMovementXY.magnitude > maxMovement)
         {
             actualMovementXY = actualMovementXY.normalized * maxMovement; 
@@ -300,7 +355,6 @@ public class FirstPersonDrifter: MonoBehaviour
         }
         float tempWalking = actualMovement.magnitude * Time.deltaTime;
         anim.SetFloat("walking" , tempWalking);
-        
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
@@ -352,13 +406,16 @@ public class FirstPersonDrifter: MonoBehaviour
     public void setRedFeather(bool set)
     {
         redFeather = set;
+        canDoubleJump = true;
         if (set)
         {
             redFeatherObject.GetComponent<Renderer>().material = redFeatherMaterial;
+            PlayerPrefs.SetInt("RedFeather", 1);
         }
         else
         {
             redFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+            PlayerPrefs.SetInt("RedFeather", 0);
         }
     }
 
@@ -369,10 +426,12 @@ public class FirstPersonDrifter: MonoBehaviour
         if (set)
         {
             orangeFeatherObject.GetComponent<Renderer>().material = orangeFeatherMaterial;
+            PlayerPrefs.SetInt("OrangeFeather", 1);
         }
         else
         {
             orangeFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+            PlayerPrefs.SetInt("OrangeFeather", 0);
         }
     }
 
@@ -383,10 +442,12 @@ public class FirstPersonDrifter: MonoBehaviour
         if (set)
         {
             yellowFeatherObject.GetComponent<Renderer>().material = yellowFeatherMaterial;
+            PlayerPrefs.SetInt("YellowFeather", 1);
         }
         else
         {
             yellowFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+            PlayerPrefs.SetInt("YellowFeather", 0);
         }
     }
 
@@ -397,10 +458,12 @@ public class FirstPersonDrifter: MonoBehaviour
         if (set)
         {
             greenFeatherObject.GetComponent<Renderer>().material = greenFeatherMaterial;
+            PlayerPrefs.SetInt("GreenFeather", 1);
         }
         else
         {
             greenFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+            PlayerPrefs.SetInt("GreenFeather", 0);
         }
     }
 
@@ -411,10 +474,12 @@ public class FirstPersonDrifter: MonoBehaviour
         if (set)
         {
             blueFeatherObject.GetComponent<Renderer>().material = blueFeatherMaterial;
+            PlayerPrefs.SetInt("BlueFeather", 1);
         }
         else
         {
             blueFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+            PlayerPrefs.SetInt("BlueFeather", 0);
         }
     }
 
@@ -425,10 +490,12 @@ public class FirstPersonDrifter: MonoBehaviour
         if (set)
         {
             purpleFeatherObject.GetComponent<Renderer>().material = purpleFeatherMaterial;
+            PlayerPrefs.SetInt("PurpleFeather", 1);
         }
         else
         {
             purpleFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+            PlayerPrefs.SetInt("PurpleFeather", 0);
         }
     }
 
@@ -439,10 +506,12 @@ public class FirstPersonDrifter: MonoBehaviour
         if (set)
         {
             pinkFeatherObject.GetComponent<Renderer>().material = pinkFeatherMaterial;
+            PlayerPrefs.SetInt("PinkFeather", 1);
         }
         else
         {
             pinkFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+            PlayerPrefs.SetInt("PinkFeather", 0);
         }
     }
 
@@ -451,5 +520,6 @@ public class FirstPersonDrifter: MonoBehaviour
     {
         //If we want to set any peacock feathers colors we can do so here
         whiteFeatherCount++;
+        PlayerPrefs.SetInt("WhiteFeathers", whiteFeatherCount);
     }
 }
