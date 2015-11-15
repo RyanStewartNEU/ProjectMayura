@@ -1,8 +1,37 @@
 fileFormatVersion: 2
 guid: c9ee6ff55b4ff41769a43e63bbd8c2ae
+timeCreated: 1447624387
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - redFeatherObject: {instanceID: 0}
+  - orangeFeatherObject: {instanceID: 0}
+  - yellowFeatherObject: {instanceID: 0}
+  - greenFeatherObject: {instanceID: 0}
+  - blueFeatherObject: {instanceID: 0}
+  - purpleFeatherObject: {instanceID: 0}
+  - pinkFeatherObject: {instanceID: 0}
+  - whiteFeatherMaterial: {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0,
+      type: 2}
+  - redFeatherMaterial: {fileID: 2100000, guid: b561e63ab7c60544e8686a52a2c6c460,
+      type: 2}
+  - orangeFeatherMaterial: {fileID: 2100000, guid: 157053684d169284fab79ace91efc32e,
+      type: 2}
+  - yellowFeatherMaterial: {fileID: 2100000, guid: 9bf549f9c4d305f4f85c8c03a5dcb38b,
+      type: 2}
+  - greenFeatherMaterial: {fileID: 2100000, guid: 1e5f8b127c220de41b7dcf14a731c811,
+      type: 2}
+  - blueFeatherMaterial: {fileID: 2100000, guid: a4242e3713b7f0c42aa3e8f0b0024955,
+      type: 2}
+  - purpleFeatherMaterial: {fileID: 2100000, guid: d49fdba82b314ec4e8678afecdacb4da,
+      type: 2}
+  - pinkFeatherMaterial: {fileID: 2100000, guid: 04967fed7b63b6041b5e15a8699c4502,
+      type: 2}
+  - lastCheckpoint: {instanceID: 0}
+  - cam: {instanceID: 0}
+  - model: {instanceID: 0}
+  - lookTransform: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
