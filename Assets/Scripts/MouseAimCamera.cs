@@ -12,13 +12,12 @@ public class MouseAimCamera : MonoBehaviour {
     bool autoRotating;
     bool connected;
     Vector3 startRot;
-    public Vector3 offset;
+    public Vector3 offset, minOffset, maxOffset;
     Vector2 axis;
     float tDist;
     void Start() 
     {
         offset = target.transform.position - transform.position;
-        offset.z*= -1;
         vertical = transform.eulerAngles.x;
         horizontal = transform.eulerAngles.y;
         connected = true;
@@ -119,9 +118,33 @@ public class MouseAimCamera : MonoBehaviour {
             vertical -=360;
         }
         
+
         Quaternion rotation = Quaternion.Euler(vertical,horizontal, 0);
+        //Debug.Log(rotation * offset - (target.transform.position - transform.position));
         transform.position = target.transform.position - (rotation * offset); 
+        
         transform.LookAt(target.transform);
            
+    }
+
+    public void GetOffset(Quaternion rotation)
+    {
+        
+        //offset = (target.transform.position - transform.position);
+        offset = Quaternion.Inverse(rotation)  * ((transform.position  - target.transform.position) * -1) ;
+        if(offset.x < minOffset.x)
+            offset.x = minOffset.x;
+        if(offset.x > maxOffset.x)
+            offset.x = maxOffset.x;
+
+        if(offset.y < minOffset.y)
+            offset.y = minOffset.y;
+        if(offset.y > maxOffset.y)
+            offset.y = maxOffset.y;
+
+        if(offset.z < minOffset.z)
+            offset.z = minOffset.z;
+        if(offset.z > maxOffset.z)
+            offset.z = maxOffset.z;
     }
 }

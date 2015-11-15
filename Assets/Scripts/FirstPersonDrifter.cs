@@ -136,7 +136,9 @@ public class FirstPersonDrifter: MonoBehaviour
         {
              anim.SetBool("jump", false);
         }*/
-       
+        
+        
+
         if (grounded) // if you are on the ground 
         {
             bool sliding = false;
@@ -163,7 +165,7 @@ public class FirstPersonDrifter: MonoBehaviour
  
             if( enableRunning )
             {
-            	speed = Input.GetButton("Run")? runSpeed : walkSpeed;
+                maxMovement = Input.GetButton("Run")? runSpeed : walkSpeed;
             }
  
             // If sliding (and it's allowed), or if we're on an object tagged "Slide", get a vector pointing down the slope we're on
@@ -177,7 +179,7 @@ public class FirstPersonDrifter: MonoBehaviour
             // Otherwise recalculate moveDirection directly from axes, adding a bit of -y to avoid bumping down inclines
             else 
             {               
-                moveDirection = new Vector3(inputX * inputModifyFactor * Mathf.Abs(inputX) , -antiBumpFactor, inputY * inputModifyFactor * Mathf.Abs(inputY) );
+                moveDirection = new Vector3(inputX * inputModifyFactor , -antiBumpFactor, inputY * inputModifyFactor  ) * 5;
                 moveDirection = translatedToCam(moveDirection);
                 playerControl = true;
             }
@@ -239,8 +241,8 @@ public class FirstPersonDrifter: MonoBehaviour
             // If air control is allowed, check movement but don't touch the y component
             if (airControl && playerControl) 
             {
-                moveDirection.x = inputX  * inputModifyFactor;
-                moveDirection.z = inputY  * inputModifyFactor;
+                moveDirection.x = inputX  * inputModifyFactor * 5;
+                moveDirection.z = inputY  * inputModifyFactor * 5;
                 float storeY = moveDirection.y;
                 moveDirection = translatedToCam(moveDirection) / 1.5f;
                 moveDirection.y = storeY;
@@ -251,15 +253,14 @@ public class FirstPersonDrifter: MonoBehaviour
         Vector2 actualMovementXY = new Vector2(actualMovement.x,actualMovement.z);
 
         Vector2 mdir = moveDirectionXY - actualMovementXY;
-
         if(mdir.magnitude > maxMovementPerFrame)
         {
             mdir = mdir.normalized * maxMovementPerFrame;
         }
-
         actualMovement +=new Vector3(mdir.x,moveDirection.y, mdir.y);
                 
         actualMovementXY = new Vector2(actualMovement.x,actualMovement.z);
+        Debug.Log(actualMovementXY.magnitude);
         if(actualMovementXY.magnitude > maxMovement)
         {
             actualMovementXY = actualMovementXY.normalized * maxMovement; 
@@ -299,6 +300,7 @@ public class FirstPersonDrifter: MonoBehaviour
         }
         float tempWalking = actualMovement.magnitude * Time.deltaTime;
         anim.SetFloat("walking" , tempWalking);
+        
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
