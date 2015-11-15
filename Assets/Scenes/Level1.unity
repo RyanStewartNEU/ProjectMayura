@@ -200,6 +200,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ee6ff55b4ff41769a43e63bbd8c2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redFeatherObject: {fileID: 0}
+  orangeFeatherObject: {fileID: 0}
+  yellowFeatherObject: {fileID: 0}
+  greenFeatherObject: {fileID: 0}
+  blueFeatherObject: {fileID: 0}
+  purpleFeatherObject: {fileID: 0}
+  pinkFeatherObject: {fileID: 0}
+  whiteFeatherMaterial: {fileID: 0}
+  redFeatherMaterial: {fileID: 0}
+  orangeFeatherMaterial: {fileID: 0}
+  yellowFeatherMaterial: {fileID: 0}
+  greenFeatherMaterial: {fileID: 0}
+  blueFeatherMaterial: {fileID: 0}
+  purpleFeatherMaterial: {fileID: 0}
+  pinkFeatherMaterial: {fileID: 0}
   lastCheckpoint: {fileID: 0}
   walkSpeed: 15
   runSpeed: 30

@@ -8,6 +8,36 @@ using System.Collections;
 [RequireComponent (typeof (CharacterController))]
 public class FirstPersonDrifter: MonoBehaviour
 {
+    //Game Progress Variables
+    private int whiteFeatherCount = 0;
+    private bool redFeather = false;
+    private bool orangeFeather = false;
+    private bool yellowFeather = false;
+    private bool greenFeather = false;
+    private bool blueFeather = false;
+    private bool purpleFeather = false;
+    private bool pinkFeather = false;
+
+    //Feathers on the bird
+    public GameObject redFeatherObject;
+    public GameObject orangeFeatherObject;
+    public GameObject yellowFeatherObject;
+    public GameObject greenFeatherObject;
+    public GameObject blueFeatherObject;
+    public GameObject purpleFeatherObject;
+    public GameObject pinkFeatherObject;
+
+    //Materials corresponding to each feather
+    public Material whiteFeatherMaterial;
+    public Material redFeatherMaterial;
+    public Material orangeFeatherMaterial;
+    public Material yellowFeatherMaterial;
+    public Material greenFeatherMaterial;
+    public Material blueFeatherMaterial;
+    public Material purpleFeatherMaterial;
+    public Material pinkFeatherMaterial;
+
+    //Movement Variables
     public Transform lastCheckpoint;
     public float walkSpeed = 6.0f;
     public float runSpeed = 10.0f;
@@ -74,6 +104,15 @@ public class FirstPersonDrifter: MonoBehaviour
     Animator anim;
     void Start()
     {
+        //Set all feathers to white
+        redFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        orangeFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        yellowFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        greenFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        blueFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        purpleFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        pinkFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+
         controller = GetComponent<CharacterController>();
         myTransform = transform;
         speed = walkSpeed;
@@ -272,11 +311,6 @@ public class FirstPersonDrifter: MonoBehaviour
         }
     }
     
-
-    void LateUpdate()
-    {
-
-    }
     // Store point that we're in contact with for use in FixedUpdate if needed
     void OnControllerColliderHit (ControllerColliderHit hit) {
         if(hit.transform.tag == "FalloutCatcher")
@@ -310,5 +344,110 @@ public class FirstPersonDrifter: MonoBehaviour
             move = (move.z  * cam.transform.forward) + zAx;  
             move.y = 0;
             return move;
+    }
+
+    //Sets the red feather true or false and adjusts the feathers color accordingly
+    public void setRedFeather(bool set)
+    {
+        redFeather = set;
+        if (set)
+        {
+            redFeatherObject.GetComponent<Renderer>().material = redFeatherMaterial;
+        }
+        else
+        {
+            redFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        }
+    }
+
+    //Sets the orange feather true or false and adjusts the feathers color accordingly
+    public void setOrangeFeather(bool set)
+    {
+        orangeFeather = set;
+        if (set)
+        {
+            orangeFeatherObject.GetComponent<Renderer>().material = orangeFeatherMaterial;
+        }
+        else
+        {
+            orangeFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        }
+    }
+
+    //Sets the yellow feather true or false and adjusts the feathers color accordingly
+    public void setYellowFeather(bool set)
+    {
+        yellowFeather = set;
+        if (set)
+        {
+            yellowFeatherObject.GetComponent<Renderer>().material = yellowFeatherMaterial;
+        }
+        else
+        {
+            yellowFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        }
+    }
+
+    //Sets the green feather true or false and adjusts the feathers color accordingly
+    public void setGreenFeather(bool set)
+    {
+        greenFeather = set;
+        if (set)
+        {
+            greenFeatherObject.GetComponent<Renderer>().material = greenFeatherMaterial;
+        }
+        else
+        {
+            greenFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        }
+    }
+
+    //Sets the blue feather true or false and adjusts the feathers color accordingly
+    public void setBlueFeather(bool set)
+    {
+        blueFeather = set;
+        if (set)
+        {
+            blueFeatherObject.GetComponent<Renderer>().material = blueFeatherMaterial;
+        }
+        else
+        {
+            blueFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        }
+    }
+
+    //Sets the purple feather true or false and adjusts the feathers color accordingly
+    public void setPurpleFeather(bool set)
+    {
+        purpleFeather = set;
+        if (set)
+        {
+            purpleFeatherObject.GetComponent<Renderer>().material = purpleFeatherMaterial;
+        }
+        else
+        {
+            purpleFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        }
+    }
+
+    //Sets the pink feather true or false and adjusts the feathers color accordingly
+    public void setPinkFeather(bool set)
+    {
+        pinkFeather = set;
+        if (set)
+        {
+            pinkFeatherObject.GetComponent<Renderer>().material = pinkFeatherMaterial;
+        }
+        else
+        {
+            pinkFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+        }
+    }
+
+    //Add a white feather
+    public void AddWhiteFeather()
+    {
+        //If we want to set any peacock feathers colors we can do so here
+        whiteFeatherCount++;
     }
 }
