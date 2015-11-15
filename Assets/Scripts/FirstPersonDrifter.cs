@@ -322,7 +322,6 @@ public class FirstPersonDrifter: MonoBehaviour
         }
     }
     
-<<<<<<< HEAD
 
     void LateUpdate()
     {
@@ -333,8 +332,6 @@ public class FirstPersonDrifter: MonoBehaviour
             anim.SetBool("landing", true);
         }
     }
-=======
->>>>>>> origin/master
     // Store point that we're in contact with for use in FixedUpdate if needed
     void OnControllerColliderHit (ControllerColliderHit hit) {
         if(hit.transform.tag == "FalloutCatcher")
