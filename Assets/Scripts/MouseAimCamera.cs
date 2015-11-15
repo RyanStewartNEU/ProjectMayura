@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MouseAimCamera : MonoBehaviour {
     public GameObject target;
+    public Transform stayCloseTransform;
+    public Transform lookAtTarget;
     public float rotateSpeed = 5;
     public float movementDistance;
     public float autoRotateSpeed;
@@ -62,7 +64,7 @@ public class MouseAimCamera : MonoBehaviour {
     }
     public Vector3 getFilteredRotation()
     {
-            Vector3 rotateTo = target.transform.localEulerAngles;
+            Vector3 rotateTo = lookAtTarget.localEulerAngles;
             Vector3 diff = startRot - rotateTo;
             rotateTo.x = verticleReset; 
             if(diff.x > 180)
@@ -109,6 +111,7 @@ public class MouseAimCamera : MonoBehaviour {
             }
             else
             {
+                target.transform.position = lookAtTarget.position;
                 autoRotating = false;
             }
         }
@@ -123,7 +126,7 @@ public class MouseAimCamera : MonoBehaviour {
         //Debug.Log(rotation * offset - (target.transform.position - transform.position));
         transform.position = target.transform.position - (rotation * offset); 
         
-        transform.LookAt(target.transform);
+        transform.LookAt(lookAtTarget);
            
     }
 
