@@ -103,6 +103,9 @@ public class FirstPersonDrifter: MonoBehaviour
     Vector3 lookDir;
     Animator anim;
     bool onceAfterDoubleJumped;
+
+	public UISCript UI;
+
     void Start()
     {
         //Set all feathers to white
@@ -547,5 +550,6 @@ public class FirstPersonDrifter: MonoBehaviour
         //If we want to set any peacock feathers colors we can do so here
         whiteFeatherCount++;
         PlayerPrefs.SetInt("WhiteFeathers", whiteFeatherCount);
+		UI.shouldReadNewDataAndUpdate ();
     }
 }
