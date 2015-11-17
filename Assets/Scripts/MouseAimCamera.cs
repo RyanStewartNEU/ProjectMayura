@@ -14,7 +14,7 @@ public class MouseAimCamera : MonoBehaviour {
     bool autoRotating;
     bool connected;
     Vector3 startRot;
-    public Vector3 offset, minOffset, maxOffset;
+    public Vector3 offset;
     Vector2 axis;
     float tDist;
     void Start() 
@@ -128,26 +128,5 @@ public class MouseAimCamera : MonoBehaviour {
         
         transform.LookAt(lookAtTarget);
            
-    }
-
-    public void GetOffset(Quaternion rotation)
-    {
-        
-        //offset = (target.transform.position - transform.position);
-        offset = Quaternion.Inverse(rotation)  * ((transform.position  - target.transform.position) * -1) ;
-        if(offset.x < minOffset.x)
-            offset.x = minOffset.x;
-        if(offset.x > maxOffset.x)
-            offset.x = maxOffset.x;
-
-        if(offset.y < minOffset.y)
-            offset.y = minOffset.y;
-        if(offset.y > maxOffset.y)
-            offset.y = maxOffset.y;
-
-        if(offset.z < minOffset.z)
-            offset.z = minOffset.z;
-        if(offset.z > maxOffset.z)
-            offset.z = maxOffset.z;
     }
 }
