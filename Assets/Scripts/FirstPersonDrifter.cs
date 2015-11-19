@@ -256,13 +256,9 @@ public class FirstPersonDrifter: MonoBehaviour
                 doubleJumped = false;
                 holdingJump = true;
                 jumpCheckWait = 3;
-<<<<<<< HEAD
-
-=======
                 goingDown = false;
                 anim.SetBool("landing", false);
                 anim.SetBool("jump", true);
->>>>>>> origin/master
             }
         }
         else {
@@ -371,13 +367,9 @@ public class FirstPersonDrifter: MonoBehaviour
         {
             actualMovement.y = -maxDownwardSpeed;
         }
-<<<<<<< HEAD
-        float tempWalking = actualMovement.magnitude * Time.deltaTime;
         
-=======
         float tempWalking = new Vector2(actualMovement.x, actualMovement.z).magnitude * Time.deltaTime;
-        anim.SetFloat("walking" , tempWalking);
->>>>>>> origin/master
+   
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
@@ -388,13 +380,9 @@ public class FirstPersonDrifter: MonoBehaviour
             lookTransform.position = model.position + lookDir;
             model.LookAt(lookTransform);
         }
-        anim.SetFloat("Speed", controller.velocity.x + controller.velocity.z);
+        anim.SetFloat("Speed", new Vector2(controller.velocity.x, controller.velocity.z).magnitude);
         anim.SetFloat("YSpeed", controller.velocity.y);
     }
-<<<<<<< HEAD
-
-=======
-    
 
     void LateUpdate()
     {
@@ -405,7 +393,7 @@ public class FirstPersonDrifter: MonoBehaviour
             anim.SetBool("landing", true);
         }
     }
->>>>>>> origin/master
+
     // Store point that we're in contact with for use in FixedUpdate if needed
     void OnControllerColliderHit (ControllerColliderHit hit) {
         if(hit.transform.tag == "FalloutCatcher")

@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class ClearSave {
+public class ClearSave:MonoBehaviour {
 
-    public static void Clear()
+    void OnTriggerEnter(Collider col)
     {
-        PlayerPrefs.DeleteAll();
+        if (col.transform.tag == "Player")
+        {
+            Debug.Log("PLAYER DATA WIPED");
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     
