@@ -1,0 +1,205 @@
+fileFormatVersion: 2
+guid: 19d6e98a4082ee64c8533888a8a4db8c
+timeCreated: 1447453920
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Back
+    100002: beak
+    100004: Butt
+    100006: Eyes
+    100008: Feather_1
+    100010: Feather_10
+    100012: Feather_11
+    100014: Feather_12
+    100016: Feather_13
+    100018: Feather_2
+    100020: Feather_3
+    100022: Feather_4
+    100024: Feather_5
+    100026: Feather_6
+    100028: Feather_7
+    100030: Feather_8
+    100032: Feather_9
+    100034: Feathers
+    100036: Feathers 1
+    100038: Head
+    100040: ikHandle1
+    100042: ikHandle2
+    100044: ikHandle3
+    100046: Left_Ankle
+    100048: Left_elbow
+    100050: Left_Eye1
+    100052: Left_Hip
+    100054: Left_Knee
+    100056: Left_knuckle
+    100058: Left_knuckle1
+    100060: Left_shoulder
+    100062: Left_Toe
+    100064: Left_wingtip
+    100066: Neck_1
+    100068: Neck_2
+    100070: Neckbase
+    100072: Peacock3
+    100074: Peacock_Mesh
+    100076: Right_Ankle
+    100078: Right_elbow
+    100080: Right_Eye1
+    100082: Right_Hip
+    100084: Right_Knee
+    100086: Right_knuckle
+    100088: Right_knuckle1
+    100090: Right_shoulder
+    100092: Right_Toe
+    100094: Right_wingtip
+    100096: Root
+    100098: //RootNode
+    400000: Back
+    400002: beak
+    400004: Butt
+    400006: Eyes
+    400008: Feather_1
+    400010: Feather_10
+    400012: Feather_11
+    400014: Feather_12
+    400016: Feather_13
+    400018: Feather_2
+    400020: Feather_3
+    400022: Feather_4
+    400024: Feather_5
+    400026: Feather_6
+    400028: Feather_7
+    400030: Feather_8
+    400032: Feather_9
+    400034: Feathers
+    400036: Feathers 1
+    400038: Head
+    400040: ikHandle1
+    400042: ikHandle2
+    400044: ikHandle3
+    400046: Left_Ankle
+    400048: Left_elbow
+    400050: Left_Eye1
+    400052: Left_Hip
+    400054: Left_Knee
+    400056: Left_knuckle
+    400058: Left_knuckle1
+    400060: Left_shoulder
+    400062: Left_Toe
+    400064: Left_wingtip
+    400066: Neck_1
+    400068: Neck_2
+    400070: Neckbase
+    400072: Peacock3
+    400074: Peacock_Mesh
+    400076: Right_Ankle
+    400078: Right_elbow
+    400080: Right_Eye1
+    400082: Right_Hip
+    400084: Right_Knee
+    400086: Right_knuckle
+    400088: Right_knuckle1
+    400090: Right_shoulder
+    400092: Right_Toe
+    400094: Right_wingtip
+    400096: Root
+    400098: //RootNode
+    4300000: Peacock3
+    4300002: Left_Eye1
+    4300004: Right_Eye1
+    4300006: Feather_5
+    4300008: Feather_3
+    4300010: Feather_7
+    4300012: Feather_4
+    4300014: Feather_6
+    4300016: Feather_8
+    4300018: Feather_9
+    4300020: Feather_10
+    4300022: Feather_11
+    4300024: Feather_1
+    4300026: Feather_2
+    4300028: Feather_12
+    4300030: Feather_13
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Feather_1
+    13700002: Feather_10
+    13700004: Feather_11
+    13700006: Feather_12
+    13700008: Feather_13
+    13700010: Feather_2
+    13700012: Feather_3
+    13700014: Feather_4
+    13700016: Feather_5
+    13700018: Feather_6
+    13700020: Feather_7
+    13700022: Feather_8
+    13700024: Feather_9
+    13700026: Left_Eye1
+    13700028: Peacock3
+    13700030: Right_Eye1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

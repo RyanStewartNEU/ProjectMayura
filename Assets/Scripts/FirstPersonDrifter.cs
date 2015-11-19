@@ -86,7 +86,7 @@ public class FirstPersonDrifter: MonoBehaviour
     private float speed;
     private RaycastHit hit;
     private float fallStartLevel;
-    private bool falling;
+    private bool goingDown;
     private float slideLimit;
     private float rayDistance;
     private Vector3 contactPoint;
@@ -98,10 +98,14 @@ public class FirstPersonDrifter: MonoBehaviour
     private bool doubleJumped;
     private bool jumpingUp,jumpingDown;
     private float jumpTimeUp,jumpTimeDown;
-
+    bool falling;
     int jumpCheckWait;
     Vector3 lookDir;
     Animator anim;
+    bool onceAfterDoubleJumped;
+
+	public UISCript UI;
+
     void Start()
     {
         //Set all feathers to white
@@ -172,12 +176,12 @@ public class FirstPersonDrifter: MonoBehaviour
         controller = GetComponent<CharacterController>();
         myTransform = transform;
         speed = walkSpeed;
+        goingDown = false;
         rayDistance = controller.height * .5f + controller.radius;
         slideLimit = controller.slopeLimit - .1f;
         jumpTimer = antiBunnyHopFactor;
         anim = transform.GetComponentInChildren<Animator>();
         actualMovement = new Vector3(0,0,0);
-        Debug.Log(anim.hasRootMotion);
         if(cam == null)
         cam = Camera.main;
     }
@@ -252,7 +256,13 @@ public class FirstPersonDrifter: MonoBehaviour
                 doubleJumped = false;
                 holdingJump = true;
                 jumpCheckWait = 3;
+<<<<<<< HEAD
 
+=======
+                goingDown = false;
+                anim.SetBool("landing", false);
+                anim.SetBool("jump", true);
+>>>>>>> origin/master
             }
         }
         else {
@@ -265,7 +275,9 @@ public class FirstPersonDrifter: MonoBehaviour
             else
             {
                 moveDirection.y = 0;
-                holdingJump = false;
+                goingDown = true;
+                if(holdingJump && !Input.GetButton("Jump"))
+                    holdingJump = false;
             }
             // If we stepped over a cliff or something, set the height at which we started falling
             if (!falling) {
@@ -315,6 +327,8 @@ public class FirstPersonDrifter: MonoBehaviour
             actualMovementXY = actualMovementXY.normalized * maxMovement; 
             actualMovement = new Vector3(actualMovementXY.x,actualMovement.y,actualMovementXY.y);
         }
+
+
         
         if(grounded)
         {
@@ -329,17 +343,27 @@ public class FirstPersonDrifter: MonoBehaviour
         {
             if(!holdingJump)
             {
-                if(canDoubleJump && !doubleJumped && Input.GetButtonDown("Jump") && actualMovement.y <=0)
+                if(canDoubleJump && !doubleJumped && Input.GetButton("Jump") && actualMovement.y <=5)
                 {
                     actualMovement = moveDirection;
                     actualMovement.y = doubleJumpSpeed;
                     doubleJumped = true;
+                    onceAfterDoubleJumped = true;
                 }
+                
+            }
+
+            if(!onceAfterDoubleJumped)
+            {
+                if(goingDown)
+                    actualMovement.y -= gravity;
                 else
-                actualMovement.y -= gravity;
+                    actualMovement.y = moveDirection.y;
             }
             else
-            actualMovement.y = moveDirection.y;
+            {
+                onceAfterDoubleJumped = false;
+            }
         }
         
         
@@ -347,8 +371,13 @@ public class FirstPersonDrifter: MonoBehaviour
         {
             actualMovement.y = -maxDownwardSpeed;
         }
+<<<<<<< HEAD
         float tempWalking = actualMovement.magnitude * Time.deltaTime;
         
+=======
+        float tempWalking = new Vector2(actualMovement.x, actualMovement.z).magnitude * Time.deltaTime;
+        anim.SetFloat("walking" , tempWalking);
+>>>>>>> origin/master
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
@@ -362,7 +391,21 @@ public class FirstPersonDrifter: MonoBehaviour
         anim.SetFloat("Speed", controller.velocity.x + controller.velocity.z);
         anim.SetFloat("YSpeed", controller.velocity.y);
     }
+<<<<<<< HEAD
 
+=======
+    
+
+    void LateUpdate()
+    {
+        RaycastHit[]  hits = Physics.RaycastAll(transform.position,  actualMovement.normalized, 4);
+        if(hits.Length > 0)
+        {
+            anim.SetBool("jump", false);
+            anim.SetBool("landing", true);
+        }
+    }
+>>>>>>> origin/master
     // Store point that we're in contact with for use in FixedUpdate if needed
     void OnControllerColliderHit (ControllerColliderHit hit) {
         if(hit.transform.tag == "FalloutCatcher")
@@ -517,5 +560,6 @@ public class FirstPersonDrifter: MonoBehaviour
         //If we want to set any peacock feathers colors we can do so here
         whiteFeatherCount++;
         PlayerPrefs.SetInt("WhiteFeathers", whiteFeatherCount);
+		UI.shouldReadNewDataAndUpdate ();
     }
 }

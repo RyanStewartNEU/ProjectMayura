@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: grass
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _OUTL_ON
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -19,8 +19,13 @@ Material:
         first:
           name: _MainTex
         second:
+<<<<<<< HEAD
           m_Texture: {fileID: 2800000, guid: 2dd4bac459882b24c9d8a8b44361f748, type: 3}
           m_Scale: {x: 4, y: 4}
+=======
+          m_Texture: {fileID: 2800000, guid: 3240d7294fc975f49ab6f43b04b445b1, type: 3}
+          m_Scale: {x: 2, y: 2}
+>>>>>>> origin/master
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -32,6 +37,69 @@ Material:
       data:
         first:
           name: _DetailNormalMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Control
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat0
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat2
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat3
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal0
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal1
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal2
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal3
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -55,7 +123,11 @@ Material:
           name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
+<<<<<<< HEAD
           m_Scale: {x: 4, y: 4}
+=======
+          m_Scale: {x: 2, y: 2}
+>>>>>>> origin/master
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -69,13 +141,20 @@ Material:
           name: _DetailAlbedoMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 10, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ToonShade
+        second:
+          m_Texture: {fileID: 2800000, guid: 3240d7294fc975f49ab6f43b04b445b1, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -91,6 +170,42 @@ Material:
         first:
           name: _Cutoff
         second: .5
+      data:
+        first:
+          name: _Shininess
+        second: .078125
+      data:
+        first:
+          name: _Metallic0
+        second: 0
+      data:
+        first:
+          name: _Metallic1
+        second: 0
+      data:
+        first:
+          name: _Metallic2
+        second: 0
+      data:
+        first:
+          name: _Metallic3
+        second: 0
+      data:
+        first:
+          name: _Smoothness0
+        second: 1
+      data:
+        first:
+          name: _Smoothness1
+        second: 1
+      data:
+        first:
+          name: _Smoothness2
+        second: 1
+      data:
+        first:
+          name: _Smoothness3
+        second: 1
       data:
         first:
           name: _Parallax
@@ -118,7 +233,7 @@ Material:
       data:
         first:
           name: _UVSec
-        second: 0
+        second: 1
       data:
         first:
           name: _Mode
@@ -126,6 +241,38 @@ Material:
       data:
         first:
           name: _Metallic
+        second: 0
+      data:
+        first:
+          name: _Cutoff2
+        second: .5
+      data:
+        first:
+          name: _DetailTex
+        second: 0
+      data:
+        first:
+          name: _TintColor
+        second: 0
+      data:
+        first:
+          name: _VertexColor
+        second: 0
+      data:
+        first:
+          name: _Brightness
+        second: .800000012
+      data:
+        first:
+          name: _Outl
+        second: 1
+      data:
+        first:
+          name: _Outline
+        second: .100000001
+      data:
+        first:
+          name: _Asym
         second: 0
     m_Colors:
       data:
@@ -135,4 +282,28 @@ Material:
       data:
         first:
           name: _Color
+<<<<<<< HEAD
         second: {r: .184147939, g: .963235319, b: .254174888, a: 1}
+=======
+        second: {r: .0140571073, g: .95588237, b: .0987114981, a: 1}
+      data:
+        first:
+          name: _WaveAndDistance
+        second: {r: 0, g: 0, b: 1, a: 1}
+      data:
+        first:
+          name: _WavingTint
+        second: {r: .699999988, g: .600000024, b: .5, a: 0}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _Asymmetry
+        second: {r: 0, g: 10, b: .5, a: 0}
+>>>>>>> origin/master
