@@ -4,12 +4,12 @@ using System.Collections;
 public class MovingPlatform : MonoBehaviour {
 
     public Transform moveTo;
+    public Transform moveFrom;
     public float moveSpeed = .1f;
-    private Vector3 startFrom;
     public bool movingAway = true;
 	// Use this for initialization
 	void Start () {
-        startFrom = this.transform.position;
+
 	}
 	
 	// Update is called once per frame
@@ -27,13 +27,13 @@ public class MovingPlatform : MonoBehaviour {
         }
         else
         {
-            if (Vector3.Distance(this.transform.position, startFrom) < 0.1f)
+            if (Vector3.Distance(this.transform.position, moveFrom.transform.position) < 0.1f)
             {
                 movingAway = true;
             }
             else
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, startFrom, moveSpeed);
+                this.transform.position = Vector3.Lerp(this.transform.position, moveFrom.transform.position, moveSpeed);
             }
         }
 	}

@@ -113,7 +113,10 @@ ModelImporter:
     4300026: Feather_2
     4300028: Feather_12
     4300030: Feather_13
-    7400000: Take 004
+    7400000: Jumping -10 to -5
+    7400002: Jumping -5 to 0
+    7400004: Jumping 0 to 5
+    7400006: Jumping 5 to 10
     9500000: //RootNode
     13700000: Feather_1
     13700002: Feather_10
@@ -152,16 +155,370 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 004
+      name: Jumping -10 to -5
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 38.9000015
+      lastFrame: 12
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Eyes
+        weight: 1
+      - path: Eyes/Left_Eye1
+        weight: 1
+      - path: Eyes/Right_Eye1
+        weight: 1
+      - path: Feathers
+        weight: 1
+      - path: Feathers/Feather_1
+        weight: 1
+      - path: Feathers/Feather_2
+        weight: 1
+      - path: Feathers/Feather_3
+        weight: 1
+      - path: Feathers/Feather_4
+        weight: 1
+      - path: Feathers/Feather_5
+        weight: 1
+      - path: Feathers/Feather_6
+        weight: 1
+      - path: Feathers/Feather_7
+        weight: 1
+      - path: Feathers/Feather_8
+        weight: 1
+      - path: Feathers/Feather_9
+        weight: 1
+      - path: Feathers/Feather_10
+        weight: 1
+      - path: Feathers/Feather_11
+        weight: 1
+      - path: Feathers/Feather_12
+        weight: 1
+      - path: Feathers/Feather_13
+        weight: 1
+      - path: Peacock3
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Back
+        weight: 1
+      - path: Root/Back/Butt
+        weight: 1
+      - path: Root/Feathers 1
+        weight: 1
+      - path: Root/Left_Hip
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle/Left_Toe
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle1
+        weight: 1
+      - path: Root/Left_shoulder
+        weight: 1
+      - path: Root/Left_shoulder/Left_elbow
+        weight: 1
+      - path: Root/Left_shoulder/Left_elbow/Left_wingtip
+        weight: 1
+      - path: Root/Neckbase
+        weight: 1
+      - path: Root/Neckbase/Neck_1
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2/Head
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2/Head/beak
+        weight: 1
+      - path: Root/Right_Hip
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle/Right_Toe
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle1
+        weight: 1
+      - path: Root/Right_shoulder
+        weight: 1
+      - path: Root/Right_shoulder/Right_elbow
+        weight: 1
+      - path: Root/Right_shoulder/Right_elbow/Right_wingtip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jumping -5 to 0
+      takeName: Take 001
+      firstFrame: 12
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Eyes
+        weight: 1
+      - path: Eyes/Left_Eye1
+        weight: 1
+      - path: Eyes/Right_Eye1
+        weight: 1
+      - path: Feathers
+        weight: 1
+      - path: Feathers/Feather_1
+        weight: 1
+      - path: Feathers/Feather_2
+        weight: 1
+      - path: Feathers/Feather_3
+        weight: 1
+      - path: Feathers/Feather_4
+        weight: 1
+      - path: Feathers/Feather_5
+        weight: 1
+      - path: Feathers/Feather_6
+        weight: 1
+      - path: Feathers/Feather_7
+        weight: 1
+      - path: Feathers/Feather_8
+        weight: 1
+      - path: Feathers/Feather_9
+        weight: 1
+      - path: Feathers/Feather_10
+        weight: 1
+      - path: Feathers/Feather_11
+        weight: 1
+      - path: Feathers/Feather_12
+        weight: 1
+      - path: Feathers/Feather_13
+        weight: 1
+      - path: Peacock3
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Back
+        weight: 1
+      - path: Root/Back/Butt
+        weight: 1
+      - path: Root/Feathers 1
+        weight: 1
+      - path: Root/Left_Hip
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle/Left_Toe
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle1
+        weight: 1
+      - path: Root/Left_shoulder
+        weight: 1
+      - path: Root/Left_shoulder/Left_elbow
+        weight: 1
+      - path: Root/Left_shoulder/Left_elbow/Left_wingtip
+        weight: 1
+      - path: Root/Neckbase
+        weight: 1
+      - path: Root/Neckbase/Neck_1
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2/Head
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2/Head/beak
+        weight: 1
+      - path: Root/Right_Hip
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle/Right_Toe
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle1
+        weight: 1
+      - path: Root/Right_shoulder
+        weight: 1
+      - path: Root/Right_shoulder/Right_elbow
+        weight: 1
+      - path: Root/Right_shoulder/Right_elbow/Right_wingtip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jumping 0 to 5
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Eyes
+        weight: 1
+      - path: Eyes/Left_Eye1
+        weight: 1
+      - path: Eyes/Right_Eye1
+        weight: 1
+      - path: Feathers
+        weight: 1
+      - path: Feathers/Feather_1
+        weight: 1
+      - path: Feathers/Feather_2
+        weight: 1
+      - path: Feathers/Feather_3
+        weight: 1
+      - path: Feathers/Feather_4
+        weight: 1
+      - path: Feathers/Feather_5
+        weight: 1
+      - path: Feathers/Feather_6
+        weight: 1
+      - path: Feathers/Feather_7
+        weight: 1
+      - path: Feathers/Feather_8
+        weight: 1
+      - path: Feathers/Feather_9
+        weight: 1
+      - path: Feathers/Feather_10
+        weight: 1
+      - path: Feathers/Feather_11
+        weight: 1
+      - path: Feathers/Feather_12
+        weight: 1
+      - path: Feathers/Feather_13
+        weight: 1
+      - path: Peacock3
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Back
+        weight: 1
+      - path: Root/Back/Butt
+        weight: 1
+      - path: Root/Feathers 1
+        weight: 1
+      - path: Root/Left_Hip
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle/Left_Toe
+        weight: 1
+      - path: Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle1
+        weight: 1
+      - path: Root/Left_shoulder
+        weight: 1
+      - path: Root/Left_shoulder/Left_elbow
+        weight: 1
+      - path: Root/Left_shoulder/Left_elbow/Left_wingtip
+        weight: 1
+      - path: Root/Neckbase
+        weight: 1
+      - path: Root/Neckbase/Neck_1
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2/Head
+        weight: 1
+      - path: Root/Neckbase/Neck_1/Neck_2/Head/beak
+        weight: 1
+      - path: Root/Right_Hip
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle/Right_Toe
+        weight: 1
+      - path: Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle1
+        weight: 1
+      - path: Root/Right_shoulder
+        weight: 1
+      - path: Root/Right_shoulder/Right_elbow
+        weight: 1
+      - path: Root/Right_shoulder/Right_elbow/Right_wingtip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jumping 5 to 10
+      takeName: Take 001
+      firstFrame: 45
+      lastFrame: 65
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

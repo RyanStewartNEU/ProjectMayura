@@ -121,7 +121,7 @@ ModelImporter:
     4300026: Feather_2
     4300028: Feather_12
     4300030: Feather_13
-    7400000: Take 001
+    7400000: testWalking
     9500000: //RootNode
     13700000: Feather_1
     13700002: Feather_10
@@ -158,7 +158,133 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: testWalking
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      - path: Peacock_Mesh
+        weight: 1
+      - path: Peacock_Mesh/Eyes
+        weight: 1
+      - path: Peacock_Mesh/Eyes/Left_Eye1
+        weight: 1
+      - path: Peacock_Mesh/Eyes/Right_Eye1
+        weight: 1
+      - path: Peacock_Mesh/Feathers
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_1
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_2
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_3
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_4
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_5
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_6
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_7
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_8
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_9
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_10
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_11
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_12
+        weight: 1
+      - path: Peacock_Mesh/Feathers/Feather_13
+        weight: 1
+      - path: Peacock_Mesh/Peacock3
+        weight: 1
+      - path: Peacock_Mesh/Root
+        weight: 1
+      - path: Peacock_Mesh/Root/Back
+        weight: 1
+      - path: Peacock_Mesh/Root/Back/Butt
+        weight: 1
+      - path: Peacock_Mesh/Root/Feathers 1
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_Hip
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_Hip/Left_Knee
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_Hip/Left_Knee/Left_Ankle
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle/Left_Toe
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_Hip/Left_Knee/Left_Ankle/Left_knuckle1
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_shoulder
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_shoulder/Left_elbow
+        weight: 1
+      - path: Peacock_Mesh/Root/Left_shoulder/Left_elbow/Left_wingtip
+        weight: 1
+      - path: Peacock_Mesh/Root/Neckbase
+        weight: 1
+      - path: Peacock_Mesh/Root/Neckbase/Neck_1
+        weight: 1
+      - path: Peacock_Mesh/Root/Neckbase/Neck_1/Neck_2
+        weight: 1
+      - path: Peacock_Mesh/Root/Neckbase/Neck_1/Neck_2/Head
+        weight: 1
+      - path: Peacock_Mesh/Root/Neckbase/Neck_1/Neck_2/Head/beak
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_Hip
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_Hip/Right_Knee
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_Hip/Right_Knee/Right_Ankle
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle/Right_Toe
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_Hip/Right_Knee/Right_Ankle/Right_knuckle1
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_shoulder
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_shoulder/Right_elbow
+        weight: 1
+      - path: Peacock_Mesh/Root/Right_shoulder/Right_elbow/Right_wingtip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

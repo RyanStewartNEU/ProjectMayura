@@ -187,11 +187,6 @@ public class FirstPersonDrifter: MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
-        
-        /*if(anim.GetBool("jump"))
-        {
-             anim.SetBool("jump", false);
-        }*/
        
         if (grounded) // if you are on the ground 
         {
@@ -257,7 +252,6 @@ public class FirstPersonDrifter: MonoBehaviour
                 doubleJumped = false;
                 holdingJump = true;
                 jumpCheckWait = 3;
-                anim.SetBool("jump", true);
 
             }
         }
@@ -354,7 +348,7 @@ public class FirstPersonDrifter: MonoBehaviour
             actualMovement.y = -maxDownwardSpeed;
         }
         float tempWalking = actualMovement.magnitude * Time.deltaTime;
-        anim.SetFloat("walking" , tempWalking);
+        
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
@@ -365,8 +359,10 @@ public class FirstPersonDrifter: MonoBehaviour
             lookTransform.position = model.position + lookDir;
             model.LookAt(lookTransform);
         }
+        anim.SetFloat("Speed", controller.velocity.x + controller.velocity.z);
+        anim.SetFloat("YSpeed", controller.velocity.y);
     }
-    
+
     // Store point that we're in contact with for use in FixedUpdate if needed
     void OnControllerColliderHit (ControllerColliderHit hit) {
         if(hit.transform.tag == "FalloutCatcher")
