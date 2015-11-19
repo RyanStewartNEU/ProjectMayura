@@ -124,7 +124,7 @@ public class MouseAimCamera : MonoBehaviour {
 
         Quaternion rotation = Quaternion.Euler(vertical,horizontal, 0);
         //Debug.Log(rotation * offset - (target.transform.position - transform.position));
-        transform.position = target.transform.position - (rotation * offset); 
+        transform.position = stayCloseTransform.transform.position - (rotation * offset); 
         
         transform.LookAt(lookAtTarget);
            
