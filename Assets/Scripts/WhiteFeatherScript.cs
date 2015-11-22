@@ -3,9 +3,11 @@ using System.Collections;
 
 public class WhiteFeatherScript : MonoBehaviour {
 
+	public AudioClip featherGetClip;
+
 	// Use this for initialization
 	void Start () {
-	
+		audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -17,6 +19,7 @@ public class WhiteFeatherScript : MonoBehaviour {
     {
         if(col.transform.tag == "Player")
         {
+			AudioSource.PlayClipAtPoint(featherGetClip, this.transform.position);
             Destroy(this.gameObject);
         }
     }
