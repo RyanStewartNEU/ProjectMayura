@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe3f064dad347c46a8a81b8f4edd816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  featherGetClip: {fileID: 0}
+  featherGetClip: {fileID: 8300000, guid: 95a64587b80a9403db87e0dd8a92a8ce, type: 3}
 --- !u!136 &13634110
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -244,6 +244,10 @@ Prefab:
       propertyPath: Priority
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: featherGetClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 95a64587b80a9403db87e0dd8a92a8ce, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191152}
