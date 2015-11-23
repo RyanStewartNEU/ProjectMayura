@@ -188,7 +188,6 @@ public class FirstPersonDrifter: MonoBehaviour
  
     void FixedUpdate() {
         float inputX = Input.GetAxis("Horizontal");
-        Debug.Log(Input.GetAxis("Horizontal Key"));
         
 
         if(!Input.GetButton("Horizontal Key"))
@@ -256,8 +255,8 @@ public class FirstPersonDrifter: MonoBehaviour
                 moveDirection = new Vector3(inputX * inputModifyFactor * Mathf.Abs(inputX) , -antiBumpFactor, inputY * inputModifyFactor * Mathf.Abs(inputY) );
                 moveDirection = translatedToCam(moveDirection);                
                 playerControl = true;
+                
             }
- 
             // Jump! But only if the jump button has been released and player has been grounded for a given number of frames
             if (!Input.GetButton("Jump"))
             {
@@ -347,6 +346,10 @@ public class FirstPersonDrifter: MonoBehaviour
         
         if(grounded)
         {
+            float move =   new Vector2(actualMovement.x, actualMovement.z).magnitude;
+            Debug.Log(move);
+            anim.SetFloat("Walking Speed",move);
+            
             actualMovement.y = 0;
             if(jumpingDown)
             {
@@ -399,8 +402,9 @@ public class FirstPersonDrifter: MonoBehaviour
             lookTransform.position = model.position + lookDir;
             model.LookAt(lookTransform);
         }
-        anim.SetFloat("Speed", new Vector2(controller.velocity.x, controller.velocity.z).magnitude);
-        anim.SetFloat("YSpeed", controller.velocity.y);
+        anim.SetFloat("YSpeed", actualMovement.y);
+        
+        
     }
 
     void LateUpdate()
@@ -408,8 +412,8 @@ public class FirstPersonDrifter: MonoBehaviour
         RaycastHit[]  hits = Physics.RaycastAll(transform.position,  actualMovement.normalized, 4);
         if(hits.Length > 0)
         {
-            anim.SetBool("jump", false);
-            anim.SetBool("landing", true);
+        //    anim.SetBool("jump", false);
+        //    anim.SetBool("landing", true);
         }
     }
 
