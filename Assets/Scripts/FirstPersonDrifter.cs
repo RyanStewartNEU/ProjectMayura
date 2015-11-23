@@ -188,7 +188,20 @@ public class FirstPersonDrifter: MonoBehaviour
  
     void FixedUpdate() {
         float inputX = Input.GetAxis("Horizontal");
+        Debug.Log(Input.GetAxis("Horizontal Key"));
+        inputX +=  Input.GetAxis("Horizontal Key");
+
+        if(!Input.GetButton("Horizontal Key"))
+        {
+            inputX = 0;
+        }
         float inputY = Input.GetAxis("Vertical");
+        inputY +=  Input.GetAxis("Vertical Key");
+
+        if(!Input.GetButton("Vertical Key"))
+        {
+            inputY = 0;
+        }
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
        
@@ -233,19 +246,17 @@ public class FirstPersonDrifter: MonoBehaviour
             else 
             {               
                 moveDirection = new Vector3(inputX * inputModifyFactor * Mathf.Abs(inputX) , -antiBumpFactor, inputY * inputModifyFactor * Mathf.Abs(inputY) );
-                moveDirection = translatedToCam(moveDirection);
+                moveDirection = translatedToCam(moveDirection);                
                 playerControl = true;
             }
  
             // Jump! But only if the jump button has been released and player has been grounded for a given number of frames
             if (!Input.GetButton("Jump"))
             {
-                jumpTimer++;
-                                   
+                jumpTimer++;                               
             }
             else if (jumpTimer >= antiBunnyHopFactor) 
-            {
-                
+            {              
                 jumpTimeUp = 0;
                 jumpTimeDown = 0;
                 jumpingUp = true;
