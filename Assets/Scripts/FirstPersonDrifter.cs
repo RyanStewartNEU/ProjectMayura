@@ -189,18 +189,26 @@ public class FirstPersonDrifter: MonoBehaviour
     void FixedUpdate() {
         float inputX = Input.GetAxis("Horizontal");
         Debug.Log(Input.GetAxis("Horizontal Key"));
-        inputX +=  Input.GetAxis("Horizontal Key");
+        
 
         if(!Input.GetButton("Horizontal Key"))
         {
-            inputX = 0;
+            inputX = Input.GetAxis("Horizontal");
         }
+        else
+        {
+            inputX =  Input.GetAxis("Horizontal Key");    
+        }
+        
         float inputY = Input.GetAxis("Vertical");
-        inputY +=  Input.GetAxis("Vertical Key");
-
+        
         if(!Input.GetButton("Vertical Key"))
         {
-            inputY = 0;
+            inputY = Input.GetAxis("Vertical");
+        }
+        else
+        {
+            inputY =  Input.GetAxis("Vertical Key");    
         }
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
