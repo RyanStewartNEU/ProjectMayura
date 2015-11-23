@@ -1496,6 +1496,14 @@ Prefab:
       propertyPath: m_Volume
       value: .493999988
       objectReference: {fileID: 0}
+    - target: {fileID: 9552124, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 639dd818a38610b449f0d225b379da4c, type: 2}
+    - target: {fileID: 9552124, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 43f93fd1ef25cf649954ccc34409139b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
   m_IsPrefabParent: 0
