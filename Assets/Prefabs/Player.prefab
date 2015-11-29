@@ -869,8 +869,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131102}
-  m_LocalRotation: {x: -.0351580307, y: -.0331522711, z: .595923305, w: .801586092}
-  m_LocalPosition: {x: -.00135826587, y: -.0015907163, z: -.000147222803}
+  m_LocalRotation: {x: -.00345974509, y: -.07567662, z: .596949518, w: .798694193}
+  m_LocalPosition: {x: -.00135826319, y: -.00159071479, z: -.000147255138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433428}
@@ -1022,7 +1022,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178856}
-  m_LocalRotation: {x: .671943426, y: -.588142514, z: .313251287, w: .323193491}
+  m_LocalRotation: {x: .671943486, y: -.588142574, z: .313251317, w: .32319352}
   m_LocalPosition: {x: .00135826098, y: -.00159071945, z: -.000147222134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1446,7 +1446,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.0999999, z: -1.50999999}
+  m_LocalPosition: {x: 0, y: -.839999974, z: -1.58000004}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 492286}
@@ -1701,7 +1701,7 @@ Animator:
   m_GameObject: {fileID: 186650}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3264f481154e29c4a93d551718230b3d, type: 3}
-  m_Controller: {fileID: 9100000, guid: 639dd818a38610b449f0d225b379da4c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 67f652738afd8184492c33dadac38792, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1741,6 +1741,7 @@ MonoBehaviour:
     type: 2}
   pinkFeatherMaterial: {fileID: 2100000, guid: 04967fed7b63b6041b5e15a8699c4502, type: 2}
   lastCheckpoint: {fileID: 0}
+  root: {fileID: 441462}
   walkSpeed: 15
   runSpeed: 30
   canDoubleJump: 0
@@ -1751,7 +1752,7 @@ MonoBehaviour:
   doubleJumpSpeed: 16
   enableRunning: 0
   jumpSpeed: 16
-  gravity: .800000012
+  gravity: 1.20000005
   slideWhenOverSlopeLimit: 1
   slideOnTaggedObjects: 0
   slideSpeed: 15
@@ -1763,6 +1764,9 @@ MonoBehaviour:
   model: {fileID: 461130}
   lookTransform: {fileID: 457828}
   deltaRotation: 12
+  lookDir: {x: 0, y: 0, z: 0}
+  anim: {fileID: 0}
+  normalDeadZone: .100000001
   UI: {fileID: 0}
 --- !u!114 &11407180
 MonoBehaviour:
@@ -1776,6 +1780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 461130}
+  lockY: 0
   dist: 11
   speed: 60
   yMinMax: {x: 1, y: 7}
@@ -2511,7 +2516,7 @@ CharacterController:
   m_StepOffset: .300000012
   m_SkinWidth: .0799999982
   m_MinMoveDistance: .00100000005
-  m_Center: {x: 0, y: 1, z: 1.63}
+  m_Center: {x: 0, y: 2.25, z: 1.63}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
