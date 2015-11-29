@@ -224,7 +224,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 412748}
   - 143: {fileID: 14373980}
-  - 65: {fileID: 6528260}
   - 114: {fileID: 11406976}
   - 82: {fileID: 8260786}
   m_Layer: 0
@@ -414,7 +413,6 @@ GameObject:
   - 92: {fileID: 9247266}
   - 124: {fileID: 12490316}
   - 81: {fileID: 8135048}
-  - 114: {fileID: 11455404}
   - 45: {fileID: 4569670}
   - 114: {fileID: 11407180}
   m_Layer: 0
@@ -1609,18 +1607,6 @@ Skybox:
   m_GameObject: {fileID: 150832}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 12ccb828343c3405fb94289774b51aad, type: 2}
---- !u!65 &6528260
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127780}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: .200000003, z: .200000003}
-  m_Center: {x: 0, y: .100000001, z: 2.25}
 --- !u!81 &8135048
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1734,13 +1720,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ee6ff55b4ff41769a43e63bbd8c2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redFeatherObject: {fileID: 0}
-  orangeFeatherObject: {fileID: 0}
-  yellowFeatherObject: {fileID: 0}
-  greenFeatherObject: {fileID: 0}
-  blueFeatherObject: {fileID: 0}
-  purpleFeatherObject: {fileID: 0}
-  pinkFeatherObject: {fileID: 0}
+  redFeatherObject: {fileID: 105148}
+  orangeFeatherObject: {fileID: 122868}
+  yellowFeatherObject: {fileID: 180152}
+  greenFeatherObject: {fileID: 180152}
+  blueFeatherObject: {fileID: 170004}
+  purpleFeatherObject: {fileID: 140700}
+  pinkFeatherObject: {fileID: 120712}
   whiteFeatherMaterial: {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0,
     type: 2}
   redFeatherMaterial: {fileID: 2100000, guid: b561e63ab7c60544e8686a52a2c6c460, type: 2}
@@ -1791,27 +1777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 461130}
   dist: 11
-  speed: .800000012
-  yMinMax: {x: 1, y: 6}
---- !u!114 &11455404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150832}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adeef31b6a7c5a24cbde249aceae8c55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 124866}
-  stayCloseTransform: {fileID: 0}
-  lookAtTarget: {fileID: 461130}
-  rotateSpeed: 2
-  movementDistance: 0
-  autoRotateSpeed: 1
-  verticleReset: 0
-  offset: {x: 0, y: 0, z: 0}
+  speed: 60
+  yMinMax: {x: 1, y: 7}
 --- !u!124 &12490316
 Behaviour:
   m_ObjectHideFlags: 1
@@ -2544,7 +2511,7 @@ CharacterController:
   m_StepOffset: .300000012
   m_SkinWidth: .0799999982
   m_MinMoveDistance: .00100000005
-  m_Center: {x: 0, y: 1.20000005, z: 1.63}
+  m_Center: {x: 0, y: 1, z: 1.63}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

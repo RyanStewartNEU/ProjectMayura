@@ -99,9 +99,11 @@ public class FirstPersonDrifter: MonoBehaviour
     private bool jumpingUp,jumpingDown;
     private float jumpTimeUp,jumpTimeDown;
     bool falling;
+    Transform movingPlatform;
+    Vector3 movingPlatformLastPosition;
     int jumpCheckWait;
     Vector3 lookDir;
-    Animator anim;
+    public Animator anim;
     bool onceAfterDoubleJumped;
 
 	public UISCript UI;
@@ -257,9 +259,13 @@ public class FirstPersonDrifter: MonoBehaviour
                 playerControl = true;
                 
             }
+            if(Input.GetButton("Jump"))
+            Debug.Log("went");
+
             // Jump! But only if the jump button has been released and player has been grounded for a given number of frames
             if (!Input.GetButton("Jump"))
             {
+            
                 jumpTimer++;                               
             }
             else if (jumpTimer >= antiBunnyHopFactor) 
@@ -275,12 +281,15 @@ public class FirstPersonDrifter: MonoBehaviour
                 holdingJump = true;
                 jumpCheckWait = 3;
                 goingDown = false;
-                anim.SetBool("landing", false);
                 anim.SetBool("jump", true);
             }
         }
         else {
 
+            if(movingPlatform != null)
+            {
+                movingPlatform = null;
+            }
             // if you are holding the jump button, move upwards for a factor of a second
             if(holdingJump && Input.GetButton("Jump") && Time.time - startJumpTime < holdTime)
             {
@@ -409,12 +418,20 @@ public class FirstPersonDrifter: MonoBehaviour
 
     void LateUpdate()
     {
-        RaycastHit[]  hits = Physics.RaycastAll(transform.position,  actualMovement.normalized, 4);
-        if(hits.Length > 0)
+        RaycastHit[]  hits = Physics.RaycastAll(transform.position,  new Vector3(0,-1,0).normalized, 2f);
+        if((hits.Length > 0 && actualMovement.y <= 0) || grounded)
         {
-        //    anim.SetBool("jump", false);
+           anim.SetBool("jump", false);
         //    anim.SetBool("landing", true);
         }
+        if(movingPlatform != null)
+        {
+            Vector3 move = movingPlatform.position - movingPlatformLastPosition;
+            transform.position+=move;
+            Debug.Log("going");
+            movingPlatformLastPosition = movingPlatform.position;
+        }
+
     }
 
     // Store point that we're in contact with for use in FixedUpdate if needed
@@ -428,8 +445,15 @@ public class FirstPersonDrifter: MonoBehaviour
                 this.transform.rotation = lastCheckpoint.rotation;
                 cam.transform.position = lastCheckpoint.position + cameraOffset;
                 cam.transform.rotation = lastCheckpoint.rotation;
+                
             }
         }
+        if(hit.transform.tag == "moving")
+        {
+            movingPlatform = hit.transform;
+            movingPlatformLastPosition = movingPlatform.position;
+        }
+        
         contactPoint = hit.point;
     }
  

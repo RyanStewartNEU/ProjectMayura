@@ -58,7 +58,7 @@ public class CameraFollowBehind : MonoBehaviour {
 		}
 		Vector3 newPos = new Vector3(target.position.x - (dir.x * dist), target.position.y + yHeight, target.position.z - (dir.y * dist));
 		float distS = Vector3.Distance(target.position, newPos);
-		newPos += axis.x * transform.right * speed + (axis.y * transform.up * speed * 0.5f); 
+		newPos += (axis.x * transform.right * speed * 0.01f) + (axis.y * transform.up * speed * 0.005f); 
 		transform.position =  target.position + ((newPos - target.position).normalized * distS);
 		transform.LookAt(target);
 	}
