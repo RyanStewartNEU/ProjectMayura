@@ -369,7 +369,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1467,19 +1467,19 @@ Prefab:
       objectReference: {fileID: 190729768}
     - target: {fileID: 423646, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_LocalRotation.x
-      value: .671943426
+      value: .671943486
       objectReference: {fileID: 0}
     - target: {fileID: 423646, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.588142514
+      value: -.588142574
       objectReference: {fileID: 0}
     - target: {fileID: 423646, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_LocalRotation.z
-      value: .313251287
+      value: .313251317
       objectReference: {fileID: 0}
     - target: {fileID: 423646, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .323193491
+      value: .32319352
       objectReference: {fileID: 0}
     - target: {fileID: 499048, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_RootOrder
@@ -1509,6 +1509,42 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 67f652738afd8184492c33dadac38792, type: 2}
+    - target: {fileID: 13761012, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13761012, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9557148, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027500, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_OcclusionCulling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13737190, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13737190, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13737190, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13737190, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13761012, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
   m_IsPrefabParent: 0

@@ -4,11 +4,13 @@ using System.Collections;
 public class CameraFollowBehind : MonoBehaviour {
 
 	public Transform target;
+	public bool lockY;
 	Vector2 dir;
 	Vector2 targetDir;
 	Vector3 prevPos;
 	public float dist;
 	public float speed;
+	float currentY;
 	public Vector2 yMinMax;
 	Vector2 axis;
 	Camera cam;
@@ -17,6 +19,8 @@ public class CameraFollowBehind : MonoBehaviour {
 	{
 		prevPos = target.position;		
 		cam = transform.GetComponent<Camera>();
+		transform.parent = null;
+		currentY =  transform.position.y - target.position.y;
 	}
 	
 	// Update is called once per frame
@@ -46,6 +50,13 @@ public class CameraFollowBehind : MonoBehaviour {
 		dir = new Vector2(target.position.x - transform.position.x,target.position.z - transform.position.z).normalized;
 		dir = Vector2.Lerp(dir,targetDir, 0.1f * change);
 		float yHeight =   transform.position.y - target.position.y;
+		
+		currentY += axis.y * 0.005f * speed;
+		currentY = Mathf.Min(currentY, yMinMax.y);
+		currentY = Mathf.Max(currentY, yMinMax.x);
+		if(lockY)
+		yHeight = currentY;
+
 
 		if(yHeight < yMinMax.x)
 		yHeight = yMinMax.x;
@@ -60,6 +71,7 @@ public class CameraFollowBehind : MonoBehaviour {
 		float distS = Vector3.Distance(target.position, newPos);
 		newPos += (axis.x * transform.right * speed * 0.01f) + (axis.y * transform.up * speed * 0.005f); 
 		transform.position =  target.position + ((newPos - target.position).normalized * distS);
+		transform.position = new Vector3(transform.position.x, target.position.y + yHeight, transform.position.z);
 		transform.LookAt(target);
 	}
 

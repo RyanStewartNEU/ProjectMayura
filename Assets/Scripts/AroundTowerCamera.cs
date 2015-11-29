@@ -38,7 +38,7 @@ public class AroundTowerCamera : MonoBehaviour {
 
 	 void OnTriggerEnter(Collider other) 
 	 {
-     	cam = other.transform.GetComponentInChildren<Camera>();   
+     	cam = other.GetComponentInChildren<FirstPersonDrifter>().cam;   
      	otherCamMovement = cam.GetComponent<CameraFollowBehind>();
      	otherCamMovement.enabled = false;
      	player = otherCamMovement.target;

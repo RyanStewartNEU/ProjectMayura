@@ -39,6 +39,7 @@ public class FirstPersonDrifter: MonoBehaviour
 
     //Movement Variables
     public Transform lastCheckpoint;
+    public Transform root;
     public float walkSpeed = 6.0f;
     public float runSpeed = 10.0f;
     public bool canDoubleJump;
@@ -47,6 +48,7 @@ public class FirstPersonDrifter: MonoBehaviour
     public float maxMovement;
     public float maxDownwardSpeed;
     public float doubleJumpSpeed;
+    
     // If true, diagonal speed (when strafing + moving forward or back) can't exceed normal move speed; otherwise it's about 1.4 times faster
     private bool limitDiagonalSpeed = true;
  
@@ -102,10 +104,11 @@ public class FirstPersonDrifter: MonoBehaviour
     Transform movingPlatform;
     Vector3 movingPlatformLastPosition;
     int jumpCheckWait;
-    Vector3 lookDir;
+    public Vector3 lookDir;
     public Animator anim;
     bool onceAfterDoubleJumped;
-
+    Vector3 groundNormal;
+    public float normalDeadZone;
 	public UISCript UI;
 
     void Start()
@@ -216,6 +219,7 @@ public class FirstPersonDrifter: MonoBehaviour
        
         if (grounded) // if you are on the ground 
         {
+            
             bool sliding = false;
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,
             // because that interferes with step climbing amongst other annoyances
@@ -237,8 +241,8 @@ public class FirstPersonDrifter: MonoBehaviour
                 if (myTransform.position.y < fallStartLevel - fallingDamageThreshold)
                     FallingDamageAlert (fallStartLevel - myTransform.position.y);
             }
- 
-            if( enableRunning )
+        
+            if( enableRunning ) // if running is enabled, if run button hit , increase speed to run
             {
             	speed = Input.GetButton("Run")? runSpeed : walkSpeed;
             }
@@ -251,17 +255,17 @@ public class FirstPersonDrifter: MonoBehaviour
                 moveDirection *= slideSpeed;
                 playerControl = false;
             }
-            // Otherwise recalculate moveDirection directly from axes, adding a bit of -y to avoid bumping down inclines
+            // Otherwise recalculate moveDirection directly from axes, adding a bit of -y to avoid bumping down inclines, then adjust to move on ground plane
             else 
             {               
                 moveDirection = new Vector3(inputX * inputModifyFactor * Mathf.Abs(inputX) , -antiBumpFactor, inputY * inputModifyFactor * Mathf.Abs(inputY) );
-                moveDirection = translatedToCam(moveDirection);                
+                moveDirection = translatedToCam(moveDirection);    
+                Vector3 temp = moveDirection;
+                moveDirection = Vector3.ProjectOnPlane(moveDirection, groundNormal);
                 playerControl = true;
                 
             }
-            if(Input.GetButton("Jump"))
-            Debug.Log("went");
-
+         
             // Jump! But only if the jump button has been released and player has been grounded for a given number of frames
             if (!Input.GetButton("Jump"))
             {
@@ -356,7 +360,6 @@ public class FirstPersonDrifter: MonoBehaviour
         if(grounded)
         {
             float move =   new Vector2(actualMovement.x, actualMovement.z).magnitude;
-            Debug.Log(move);
             anim.SetFloat("Walking Speed",move);
             
             actualMovement.y = 0;
@@ -404,12 +407,16 @@ public class FirstPersonDrifter: MonoBehaviour
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
-        if(turnSpeed != 0)
+        if(turnSpeed != 0 )
         {          
             Vector2 dir = new Vector2(moveDirection.x,moveDirection.z).normalized;
-            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x,0,dir.y), deltaRotation * Time.deltaTime * (turnSpeed / speed) , 1F);
+            lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x, 0 , dir.y), deltaRotation * Time.deltaTime * (turnSpeed / speed) , 1F);
             lookTransform.position = model.position + lookDir;
-            model.LookAt(lookTransform);
+            
+            model.LookAt(lookTransform.position);
+            //model.rotation = Quaternion.LookRotation(lookDir.normalized, groundNormal);
+            //lookDir = moveDirection.normalized;
+            //model.forward = lookDir;
         }
         anim.SetFloat("YSpeed", actualMovement.y);
         
@@ -428,7 +435,6 @@ public class FirstPersonDrifter: MonoBehaviour
         {
             Vector3 move = movingPlatform.position - movingPlatformLastPosition;
             transform.position+=move;
-            Debug.Log("going");
             movingPlatformLastPosition = movingPlatform.position;
         }
 
@@ -453,7 +459,12 @@ public class FirstPersonDrifter: MonoBehaviour
             movingPlatform = hit.transform;
             movingPlatformLastPosition = movingPlatform.position;
         }
-        
+        if(hit.normal.y < 0) // if you hit your head
+        {
+            Debug.Log(hit.normal);
+            holdingJump = false; // no longer holding jump
+            actualMovement.y = 0; // stop moving up;
+        }
         contactPoint = hit.point;
     }
  
