@@ -110,9 +110,55 @@ public class FirstPersonDrifter: MonoBehaviour
     Vector3 groundNormal;
     public float normalDeadZone;
 	public UISCript UI;
+	private int playingMovementSound;
+	
+	private AudioClip[] grassClips;
+
+	public AudioClip grass1;
+	public AudioClip grass2;
+	public AudioClip grass3;
+	public AudioClip grass4;
+	public AudioClip grass5;
+
+	enum CurrentTerrain {
+		Water,
+		Dirt,
+		Grass
+	}
+
+	private CurrentTerrain currentTerrain;
 
     void Start()
     {
+
+		// Doesnt work but should work
+
+		/*Debug.Log (Application.dataPath + "/Sounds/water");
+		currentTerrain = CurrentTerrain.Grass;
+		Object[] waterClipsObjs = Resources.LoadAll(Application.dataPath);
+
+		Debug.Log (waterClipsObjs.Length);
+
+		int i = 0;
+		foreach (Object clipObj in waterClipsObjs) {
+			Debug.Log ("loaded one water");
+			AudioClip clip = (AudioClip) clipObj;
+			waterClips[i] = clip;
+			i++;
+		}
+
+		Object[] grassClipsObjs = Resources.LoadAll(Application.dataPath + "/Sounds/grass", typeof(AudioClip));
+
+		i = 0;
+		foreach (Object clipObj in grassClipsObjs) {
+			Debug.Log ("loaded one grass");
+			AudioClip clip = (AudioClip) clipObj;
+			grassClips[i] = clip;
+			i++;
+		}*/
+
+		currentTerrain = CurrentTerrain.Grass;
+
         //Set all feathers to white
         redFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
         orangeFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
@@ -192,9 +238,39 @@ public class FirstPersonDrifter: MonoBehaviour
     }
  
     void FixedUpdate() {
+
+		if (playingMovementSound > 0) {
+			playingMovementSound--;
+		}
+
+		/*if (Physics.Raycast (this.transform.position, Vector3.down, 2F)) {
+			
+			RaycastHit[] hit2 = Physics.RaycastAll (this.transform.position, Vector3.down, 5F);
+			string walkingOnWhat = "Ground";
+			
+			foreach (RaycastHit hitIndiv in hit2) {
+				if (hitIndiv.collider.gameObject.name == "Water") {
+					Debug.Log ("found water below me");
+					walkingOnWhat = "Water";
+					break;
+				} else if (hitIndiv.collider.gameObject.name == "Ground") {
+					Debug.Log ("found ground below me");
+					walkingOnWhat = "Ground";
+					break;
+				}
+			}
+			
+			if (walkingOnWhat == "Water") {
+				setTerrainWater();
+				//Debug.Log ("WATER");
+			} else if (walkingOnWhat == "Ground") {
+				setTerrainGrass();
+				//Debug.Log ("GROUND");
+			}
+		}*/
+
         float inputX = Input.GetAxis("Horizontal");
         
-
         if(!Input.GetButton("Horizontal Key"))
         {
             inputX = Input.GetAxis("Horizontal");
@@ -214,6 +290,11 @@ public class FirstPersonDrifter: MonoBehaviour
         {
             inputY =  Input.GetAxis("Vertical Key");    
         }
+
+		if (inputY != 0 && playingMovementSound == 0 && grounded) {
+			playMovementSound();
+		}
+
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed)? .7071f : 1.0f;
        
@@ -419,8 +500,6 @@ public class FirstPersonDrifter: MonoBehaviour
             //model.forward = lookDir;
         }
         anim.SetFloat("YSpeed", actualMovement.y);
-        
-        
     }
 
     void LateUpdate()
@@ -608,4 +687,78 @@ public class FirstPersonDrifter: MonoBehaviour
         PlayerPrefs.SetInt("WhiteFeathers", whiteFeatherCount);
 		UI.shouldReadNewDataAndUpdate ();
     }
+
+	public void setTerrainGrass() {
+		this.currentTerrain = CurrentTerrain.Grass;
+	}
+
+	public void setTerrainDirt() {
+		this.currentTerrain = CurrentTerrain.Dirt;
+	}
+
+	public void setTerrainWater() {
+		this.currentTerrain = CurrentTerrain.Water;
+	}
+
+	private void playMovementSound() {
+		if (playingMovementSound == 0) {
+			playingMovementSound = 15;
+
+			if (currentTerrain == CurrentTerrain.Water) {
+				//playWaterWalkingSound();
+			} else if (currentTerrain == CurrentTerrain.Grass) {
+				playGrassWalkingSound();
+			}
+		}
+	}
+
+	/*private void playWaterWalkingSound() {
+		int randInt = Random.Range(0, 5) + 1;
+		AudioClip sound;
+
+		switch (randInt) {
+			case 1:
+				sound = water1;
+				break;
+			case 2:
+				sound = water2;
+				break;
+			case 3:
+				sound = water3;
+				break;
+			case 4:
+				sound = water4;
+				break;
+			default:
+				sound = water5;
+				break;
+		}
+
+		AudioSource.PlayClipAtPoint (sound, this.transform.position);
+	}*/
+
+	private void playGrassWalkingSound() {
+		int randInt = Random.Range(0, 5) + 1;
+		AudioClip sound;
+		
+		switch (randInt) {
+		case 1:
+			sound = grass1;
+			break;
+		case 2:
+			sound = grass2;
+			break;
+		case 3:
+			sound = grass3;
+			break;
+		case 4:
+			sound = grass4;
+			break;
+		default:
+			sound = grass5;
+			break;
+		}
+
+		AudioSource.PlayClipAtPoint (sound, this.transform.position);
+	}
 }

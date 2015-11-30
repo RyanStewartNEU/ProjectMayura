@@ -251,6 +251,7 @@ GameObject:
   - 4: {fileID: 55628848}
   - 33: {fileID: 55628850}
   - 23: {fileID: 55628849}
+  - 64: {fileID: 55628851}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -302,6 +303,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 55628847}
+  m_Mesh: {fileID: 4300020, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &55628851
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 55628847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300020, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &81189320
 GameObject:
@@ -615,6 +628,7 @@ GameObject:
   - 4: {fileID: 106994209}
   - 33: {fileID: 106994211}
   - 23: {fileID: 106994210}
+  - 64: {fileID: 106994212}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -667,6 +681,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 106994208}
   m_Mesh: {fileID: 4300048, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &106994212
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 106994208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300048, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &155781787
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +703,8 @@ GameObject:
   - 4: {fileID: 155781788}
   - 33: {fileID: 155781790}
   - 23: {fileID: 155781789}
+  - 64: {fileID: 155781791}
+  - 114: {fileID: 155781792}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -729,6 +757,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 155781787}
   m_Mesh: {fileID: 4300004, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &155781791
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 155781787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300004, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!114 &155781792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 155781787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fb56aed19fd40b5bc3bf6275539827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1038312491}
 --- !u!1001 &162143948
 Prefab:
   m_ObjectHideFlags: 0
@@ -738,15 +790,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -96.3938446
+      value: -138.399994
       objectReference: {fileID: 0}
     - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 76.9599991
+      value: 6.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 447.05368
+      value: -49.7000008
       objectReference: {fileID: 0}
     - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -841,6 +893,7 @@ GameObject:
   - 4: {fileID: 238119843}
   - 33: {fileID: 238119845}
   - 23: {fileID: 238119844}
+  - 64: {fileID: 238119846}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -892,6 +945,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 238119842}
+  m_Mesh: {fileID: 4300046, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &238119846
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 238119842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300046, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &241354015
 GameObject:
@@ -958,6 +1023,7 @@ GameObject:
   - 4: {fileID: 277823327}
   - 33: {fileID: 277823329}
   - 23: {fileID: 277823328}
+  - 64: {fileID: 277823330}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -1010,6 +1076,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 277823326}
   m_Mesh: {fileID: 4300052, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &277823330
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277823326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300052, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &278543682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1125,7 @@ GameObject:
   - 4: {fileID: 298723832}
   - 33: {fileID: 298723834}
   - 23: {fileID: 298723833}
+  - 64: {fileID: 298723835}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -1099,6 +1178,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 298723831}
   m_Mesh: {fileID: 4300016, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &298723835
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298723831}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300016, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &314462921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1200,7 @@ GameObject:
   - 4: {fileID: 314462922}
   - 33: {fileID: 314462924}
   - 23: {fileID: 314462923}
+  - 64: {fileID: 314462925}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -1161,6 +1253,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314462921}
   m_Mesh: {fileID: 4300028, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &314462925
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 314462921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300028, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &345157336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1275,7 @@ GameObject:
   - 4: {fileID: 345157337}
   - 33: {fileID: 345157339}
   - 23: {fileID: 345157338}
+  - 64: {fileID: 345157340}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -1222,6 +1327,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345157336}
+  m_Mesh: {fileID: 4300030, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &345157340
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 345157336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300030, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &348847922
 GameObject:
@@ -1493,6 +1610,7 @@ GameObject:
   - 4: {fileID: 441237638}
   - 33: {fileID: 441237640}
   - 23: {fileID: 441237639}
+  - 64: {fileID: 441237641}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -1544,6 +1662,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441237637}
+  m_Mesh: {fileID: 4300018, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &441237641
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441237637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300018, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &448279548
 GameObject:
@@ -1610,6 +1740,7 @@ GameObject:
   - 4: {fileID: 456201281}
   - 33: {fileID: 456201283}
   - 23: {fileID: 456201282}
+  - 64: {fileID: 456201284}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -1661,6 +1792,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456201280}
+  m_Mesh: {fileID: 4300022, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &456201284
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456201280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300022, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &457740524
 GameObject:
@@ -1839,6 +1982,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 507237667}
   m_RootOrder: 0
+--- !u!1001 &497493510
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -34.2740746
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -11.3000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -87.8000031
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 191152, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_Name
+      value: WhiteFeather (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &507237666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,7 +2171,7 @@ Transform:
   - {fileID: 1976356500}
   - {fileID: 155781788}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
 --- !u!95 &518122908
 Animator:
   serializedVersion: 3
@@ -2251,6 +2440,7 @@ GameObject:
   - 4: {fileID: 537564614}
   - 33: {fileID: 537564616}
   - 23: {fileID: 537564615}
+  - 64: {fileID: 537564617}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -2302,6 +2492,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 537564613}
+  m_Mesh: {fileID: 4300054, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &537564617
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 537564613}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300054, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &553083357
 GameObject:
@@ -2846,6 +3048,7 @@ GameObject:
   - 4: {fileID: 716765034}
   - 33: {fileID: 716765036}
   - 23: {fileID: 716765035}
+  - 64: {fileID: 716765037}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -2897,6 +3100,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 716765033}
+  m_Mesh: {fileID: 4300032, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &716765037
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 716765033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300032, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!4 &719443443 stripped
 Transform:
@@ -3050,6 +3265,7 @@ GameObject:
   - 4: {fileID: 759758292}
   - 33: {fileID: 759758294}
   - 23: {fileID: 759758293}
+  - 64: {fileID: 759758295}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -3101,6 +3317,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 759758291}
+  m_Mesh: {fileID: 4300038, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &759758295
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 759758291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300038, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &767257709
 GameObject:
@@ -3454,6 +3682,7 @@ GameObject:
   - 4: {fileID: 871556358}
   - 33: {fileID: 871556360}
   - 23: {fileID: 871556359}
+  - 64: {fileID: 871556361}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -3505,6 +3734,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 871556357}
+  m_Mesh: {fileID: 4300034, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &871556361
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871556357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300034, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &947273232
 GameObject:
@@ -3608,7 +3849,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
 --- !u!114 &950878153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3633,6 +3874,7 @@ GameObject:
   - 4: {fileID: 999745720}
   - 33: {fileID: 999745722}
   - 23: {fileID: 999745721}
+  - 64: {fileID: 999745723}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -3685,6 +3927,70 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 999745719}
   m_Mesh: {fileID: 4300050, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &999745723
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 999745719}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300050, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!1001 &1019147150
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -172.62738
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 44.4300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .776733339
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 191152, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_Name
+      value: WhiteFeather (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1038312491 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20,
+    type: 2}
+  m_PrefabInternal: {fileID: 1998246283}
+  m_Script: {fileID: 11500000, guid: c9ee6ff55b4ff41769a43e63bbd8c2ae, type: 3}
 --- !u!1 &1046058429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,7 +4214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
 --- !u!1 &1122966287
 GameObject:
   m_ObjectHideFlags: 0
@@ -4748,6 +5054,7 @@ GameObject:
   - 4: {fileID: 1332168661}
   - 33: {fileID: 1332168663}
   - 23: {fileID: 1332168662}
+  - 64: {fileID: 1332168664}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -4799,6 +5106,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1332168660}
+  m_Mesh: {fileID: 4300014, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &1332168664
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1332168660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300014, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &1339857270
 GameObject:
@@ -5292,6 +5611,7 @@ GameObject:
   - 4: {fileID: 1452311149}
   - 33: {fileID: 1452311151}
   - 23: {fileID: 1452311150}
+  - 64: {fileID: 1452311152}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -5344,6 +5664,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1452311148}
   m_Mesh: {fileID: 4300036, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &1452311152
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452311148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300036, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &1479673973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,6 +5714,7 @@ GameObject:
   - 4: {fileID: 1488320450}
   - 33: {fileID: 1488320452}
   - 23: {fileID: 1488320451}
+  - 64: {fileID: 1488320453}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -5433,6 +5766,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1488320449}
+  m_Mesh: {fileID: 4300024, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &1488320453
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1488320449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300024, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &1496221320
 GameObject:
@@ -5544,6 +5889,7 @@ GameObject:
   - 4: {fileID: 1510959677}
   - 33: {fileID: 1510959679}
   - 23: {fileID: 1510959678}
+  - 64: {fileID: 1510959680}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -5595,6 +5941,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1510959676}
+  m_Mesh: {fileID: 4300026, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &1510959680
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1510959676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300026, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &1512080101
 GameObject:
@@ -6142,6 +6500,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 435083349}
   m_RootOrder: 0
+--- !u!1001 &1649400096
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -172.850006
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 28.5020466
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 443236, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 191152, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_Name
+      value: WhiteFeather (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229418, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+      propertyPath: m_Volume
+      value: .470999986
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b79dcf1205c417b43a6e96c0416134fa, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1660157650
 GameObject:
   m_ObjectHideFlags: 0
@@ -6419,6 +6827,7 @@ GameObject:
   - 4: {fileID: 1793995067}
   - 33: {fileID: 1793995069}
   - 23: {fileID: 1793995068}
+  - 64: {fileID: 1793995070}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -6470,6 +6879,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1793995066}
+  m_Mesh: {fileID: 4300040, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &1793995070
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1793995066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300040, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &1824627811
 GameObject:
@@ -6790,6 +7211,7 @@ GameObject:
   - 4: {fileID: 1923918709}
   - 33: {fileID: 1923918711}
   - 23: {fileID: 1923918710}
+  - 64: {fileID: 1923918712}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -6841,6 +7263,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923918708}
+  m_Mesh: {fileID: 4300044, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &1923918712
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923918708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300044, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1 &1930876175
 GameObject:
@@ -7008,6 +7442,7 @@ GameObject:
   - 4: {fileID: 1997608769}
   - 33: {fileID: 1997608771}
   - 23: {fileID: 1997608770}
+  - 64: {fileID: 1997608772}
   m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
@@ -7059,6 +7494,18 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1997608768}
+  m_Mesh: {fileID: 4300042, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
+--- !u!64 &1997608772
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997608768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300042, guid: 9bd1517a5599f634d8f5d8d3de34aa9e, type: 3}
 --- !u!1001 &1998246283
 Prefab:
@@ -7218,6 +7665,58 @@ Prefab:
     - target: {fileID: 11407180, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: yMinMax.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: waterWalkClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 446afa749c5ae405e98f3bcca4195462, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grassWalkClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c6079768383dc485a9a3abea2ff92028, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: water1
+      value: 
+      objectReference: {fileID: 8300000, guid: 446afa749c5ae405e98f3bcca4195462, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: water2
+      value: 
+      objectReference: {fileID: 8300000, guid: d9a5ad48381bc4480be7481ac1196245, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: water3
+      value: 
+      objectReference: {fileID: 8300000, guid: 1971d177276034bcc86f0d9ba0c9f2f2, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: water4
+      value: 
+      objectReference: {fileID: 8300000, guid: 01f016fdbb8d84a35ac922e6f5c64eb8, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: water5
+      value: 
+      objectReference: {fileID: 8300000, guid: 69b1fd788fa874ddd948f26a173a12c6, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass1
+      value: 
+      objectReference: {fileID: 8300000, guid: c6079768383dc485a9a3abea2ff92028, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass2
+      value: 
+      objectReference: {fileID: 8300000, guid: 16346854c985744fd9e41a44c5a52762, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass3
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cd76a6f889da4557b493c05aa65ae1e, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass4
+      value: 
+      objectReference: {fileID: 8300000, guid: 386d1b127731d4329bd374004f79c87a, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass5
+      value: 
+      objectReference: {fileID: 8300000, guid: f8b82b8320185413691f356a885aad5e, type: 3}
+    - target: {fileID: 8260786, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_Volume
+      value: .314999998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
