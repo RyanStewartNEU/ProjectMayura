@@ -538,9 +538,9 @@ public class FirstPersonDrifter: MonoBehaviour
             movingPlatform = hit.transform;
             movingPlatformLastPosition = movingPlatform.position;
         }
-        if(hit.normal.y < 0) // if you hit your head
+        if(hit.normal.y < -0.8f) // if you hit your head
         {
-            Debug.Log(hit.normal);
+          //  Debug.Log(hit.normal);
             holdingJump = false; // no longer holding jump
             actualMovement.y = 0; // stop moving up;
         }
