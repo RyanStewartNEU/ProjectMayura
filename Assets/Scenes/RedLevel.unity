@@ -1545,6 +1545,26 @@ Prefab:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass1
+      value: 
+      objectReference: {fileID: 8300000, guid: c6079768383dc485a9a3abea2ff92028, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass2
+      value: 
+      objectReference: {fileID: 8300000, guid: 16346854c985744fd9e41a44c5a52762, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass3
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cd76a6f889da4557b493c05aa65ae1e, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass4
+      value: 
+      objectReference: {fileID: 8300000, guid: 386d1b127731d4329bd374004f79c87a, type: 3}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: grass5
+      value: 
+      objectReference: {fileID: 8300000, guid: f8b82b8320185413691f356a885aad5e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
   m_IsPrefabParent: 0
