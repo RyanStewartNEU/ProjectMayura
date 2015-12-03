@@ -55,7 +55,7 @@ GameObject:
   - 4: {fileID: 448758}
   - 137: {fileID: 13761012}
   m_Layer: 0
-  m_Name: Feather_1
+  m_Name: RedFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ GameObject:
   - 4: {fileID: 494394}
   - 137: {fileID: 13794262}
   m_Layer: 0
-  m_Name: Feather_13
+  m_Name: PinkFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ GameObject:
   - 4: {fileID: 431764}
   - 137: {fileID: 13718696}
   m_Layer: 0
-  m_Name: Feather_11
+  m_Name: PurpleFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ GameObject:
   - 4: {fileID: 426034}
   - 137: {fileID: 13748332}
   m_Layer: 0
-  m_Name: Feather_6
+  m_Name: WhiteFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ GameObject:
   - 4: {fileID: 421858}
   - 137: {fileID: 13740160}
   m_Layer: 0
-  m_Name: Feather_2
+  m_Name: WhiteFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -319,7 +319,7 @@ GameObject:
   - 4: {fileID: 401626}
   - 137: {fileID: 13700564}
   m_Layer: 0
-  m_Name: Feather_5
+  m_Name: YellowFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,7 +365,7 @@ GameObject:
   - 4: {fileID: 477986}
   - 137: {fileID: 13706636}
   m_Layer: 0
-  m_Name: Feather_12
+  m_Name: WhiteFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,7 +478,7 @@ GameObject:
   - 4: {fileID: 436812}
   - 137: {fileID: 13767478}
   m_Layer: 0
-  m_Name: Feather_10
+  m_Name: WhiteFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,7 +569,7 @@ GameObject:
   - 4: {fileID: 414722}
   - 137: {fileID: 13755370}
   m_Layer: 0
-  m_Name: Feather_4
+  m_Name: WhiteFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -660,7 +660,7 @@ GameObject:
   - 4: {fileID: 418024}
   - 137: {fileID: 13799198}
   m_Layer: 0
-  m_Name: Feather_3
+  m_Name: OrangeFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -676,7 +676,7 @@ GameObject:
   - 4: {fileID: 463616}
   - 137: {fileID: 13711932}
   m_Layer: 0
-  m_Name: Feather_8
+  m_Name: WhiteFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -723,7 +723,7 @@ GameObject:
   - 4: {fileID: 406000}
   - 137: {fileID: 13775482}
   m_Layer: 0
-  m_Name: Feather_9
+  m_Name: BlueFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -814,7 +814,7 @@ GameObject:
   - 4: {fileID: 465956}
   - 137: {fileID: 13754180}
   m_Layer: 0
-  m_Name: Feather_7
+  m_Name: GreenFeather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -862,7 +862,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!4 &403914
 Transform:
   m_ObjectHideFlags: 1
@@ -913,7 +913,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 8
+  m_RootOrder: 4
 --- !u!4 &410042
 Transform:
   m_ObjectHideFlags: 1
@@ -934,7 +934,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.7399998, y: 2.89999962, z: -78.4000015}
+  m_LocalPosition: {x: -9.56999969, y: 1.84000003, z: -13.3999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 461130}
@@ -954,7 +954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 3
+  m_RootOrder: 8
 --- !u!4 &418024
 Transform:
   m_ObjectHideFlags: 1
@@ -966,7 +966,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &419160
 Transform:
   m_ObjectHideFlags: 1
@@ -1003,7 +1003,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 1
+  m_RootOrder: 7
 --- !u!4 &421922
 Transform:
   m_ObjectHideFlags: 1
@@ -1040,7 +1040,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 5
+  m_RootOrder: 9
 --- !u!4 &427284
 Transform:
   m_ObjectHideFlags: 1
@@ -1077,7 +1077,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 10
+  m_RootOrder: 5
 --- !u!4 &433428
 Transform:
   m_ObjectHideFlags: 1
@@ -1126,7 +1126,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 9
+  m_RootOrder: 11
 --- !u!4 &438872
 Transform:
   m_ObjectHideFlags: 1
@@ -1301,18 +1301,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 448758}
-  - {fileID: 421858}
   - {fileID: 418024}
-  - {fileID: 414722}
   - {fileID: 401626}
-  - {fileID: 426034}
   - {fileID: 465956}
-  - {fileID: 463616}
   - {fileID: 406000}
-  - {fileID: 436812}
   - {fileID: 431764}
-  - {fileID: 477986}
   - {fileID: 494394}
+  - {fileID: 421858}
+  - {fileID: 414722}
+  - {fileID: 426034}
+  - {fileID: 463616}
+  - {fileID: 436812}
+  - {fileID: 477986}
   m_Father: {fileID: 440394}
   m_RootOrder: 1
 --- !u!4 &457828
@@ -1376,7 +1376,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 7
+  m_RootOrder: 10
 --- !u!4 &464366
 Transform:
   m_ObjectHideFlags: 1
@@ -1402,7 +1402,7 @@ Transform:
   m_LocalScale: {x: 1, y: .694374502, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 6
+  m_RootOrder: 3
 --- !u!4 &469478
 Transform:
   m_ObjectHideFlags: 1
@@ -1438,7 +1438,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!4 &478354
 Transform:
   m_ObjectHideFlags: 1
@@ -1526,7 +1526,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 457238}
-  m_RootOrder: 12
+  m_RootOrder: 6
 --- !u!4 &495282
 Transform:
   m_ObjectHideFlags: 1
@@ -1606,7 +1606,7 @@ Skybox:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150832}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: 12ccb828343c3405fb94289774b51aad, type: 2}
+  m_CustomSkybox: {fileID: 2100000, guid: 6508e46725b714446b0fcdb2b50362d5, type: 2}
 --- !u!81 &8135048
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1720,13 +1720,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ee6ff55b4ff41769a43e63bbd8c2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartWithAll: 0
   redFeatherObject: {fileID: 105148}
-  orangeFeatherObject: {fileID: 122868}
-  yellowFeatherObject: {fileID: 180152}
-  greenFeatherObject: {fileID: 180152}
-  blueFeatherObject: {fileID: 170004}
-  purpleFeatherObject: {fileID: 140700}
-  pinkFeatherObject: {fileID: 120712}
+  orangeFeatherObject: {fileID: 180152}
+  yellowFeatherObject: {fileID: 140700}
+  greenFeatherObject: {fileID: 192742}
+  blueFeatherObject: {fileID: 187064}
+  purpleFeatherObject: {fileID: 113802}
+  pinkFeatherObject: {fileID: 112008}
   whiteFeatherMaterial: {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0,
     type: 2}
   redFeatherMaterial: {fileID: 2100000, guid: b561e63ab7c60544e8686a52a2c6c460, type: 2}
@@ -1768,6 +1769,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   normalDeadZone: .100000001
   UI: {fileID: 0}
+  grass1: {fileID: 8300000, guid: c6079768383dc485a9a3abea2ff92028, type: 3}
+  grass2: {fileID: 8300000, guid: 16346854c985744fd9e41a44c5a52762, type: 3}
+  grass3: {fileID: 8300000, guid: 7cd76a6f889da4557b493c05aa65ae1e, type: 3}
+  grass4: {fileID: 8300000, guid: 386d1b127731d4329bd374004f79c87a, type: 3}
+  grass5: {fileID: 8300000, guid: f8b82b8320185413691f356a885aad5e, type: 3}
 --- !u!114 &11407180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1801,7 +1807,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1847,7 +1853,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1890,7 +1896,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1974,7 +1980,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2078,7 +2084,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2121,7 +2127,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2165,7 +2171,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2209,7 +2215,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2253,7 +2259,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2295,7 +2301,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2380,7 +2386,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2425,7 +2431,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2468,7 +2474,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 73feb18ce0941254188e075e5baf8f03, type: 2}
+  - {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

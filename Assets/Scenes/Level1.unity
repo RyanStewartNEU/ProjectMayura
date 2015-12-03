@@ -2535,7 +2535,7 @@ GameObject:
   - 65: {fileID: 1098358951}
   - 114: {fileID: 1098358954}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: CloudLayer
   m_TagString: FalloutCatcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2958,7 +2958,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!1001 &1297251304
 Prefab:
   m_ObjectHideFlags: 0
@@ -3082,7 +3082,7 @@ Transform:
   - {fileID: 1495476719}
   - {fileID: 123436801}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!95 &1332611576
 Animator:
   serializedVersion: 3

@@ -9,6 +9,7 @@ using System.Collections;
 public class FirstPersonDrifter: MonoBehaviour
 {
     //Game Progress Variables
+    public bool StartWithAll = false; //start of game, turns all feathers on, then removes them in next scene
     private int whiteFeatherCount = 0;
     private bool redFeather = false;
     private bool orangeFeather = false;
@@ -168,6 +169,15 @@ public class FirstPersonDrifter: MonoBehaviour
         purpleFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
         pinkFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
 
+        //turn off
+        redFeatherObject.gameObject.SetActive(false);
+        orangeFeatherObject.gameObject.SetActive(false);
+        yellowFeatherObject.gameObject.SetActive(false);
+        greenFeatherObject.gameObject.SetActive(false);
+        blueFeatherObject.gameObject.SetActive(false);
+        purpleFeatherObject.gameObject.SetActive(false);
+        pinkFeatherObject.gameObject.SetActive(false);
+
         //Check PlayerPrefs for existing feather
         if (PlayerPrefs.HasKey("RedFeather"))
         {
@@ -221,6 +231,27 @@ public class FirstPersonDrifter: MonoBehaviour
         if (PlayerPrefs.HasKey("WhiteFeathers"))
         {
             whiteFeatherCount = PlayerPrefs.GetInt("WhiteFeathers");
+        }
+        if (StartWithAll)
+        {
+            //turn all feathers to right color
+            redFeatherObject.GetComponent<Renderer>().material = redFeatherMaterial;
+            orangeFeatherObject.GetComponent<Renderer>().material = orangeFeatherMaterial;
+            yellowFeatherObject.GetComponent<Renderer>().material = yellowFeatherMaterial;
+            greenFeatherObject.GetComponent<Renderer>().material = greenFeatherMaterial;
+            blueFeatherObject.GetComponent<Renderer>().material = blueFeatherMaterial;
+            purpleFeatherObject.GetComponent<Renderer>().material = purpleFeatherMaterial;
+            pinkFeatherObject.GetComponent<Renderer>().material = pinkFeatherMaterial;
+            //turn on
+            redFeatherObject.gameObject.SetActive(true);
+            orangeFeatherObject.gameObject.SetActive(true);
+            yellowFeatherObject.gameObject.SetActive(true);
+            greenFeatherObject.gameObject.SetActive(true);
+            blueFeatherObject.gameObject.SetActive(true);
+            purpleFeatherObject.gameObject.SetActive(true);
+            pinkFeatherObject.gameObject.SetActive(true);
+            //clear saves
+            PlayerPrefs.DeleteAll();
         }
 
 

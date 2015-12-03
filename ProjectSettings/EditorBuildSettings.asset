@@ -5,11 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/HubWorld.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
   - enabled: 1
-    path: Assets/Scenes/RedLevel.unity
+    path: Assets/Scenes/Temple.unity
   - enabled: 1
     path: Assets/Scenes/Level1v2.unity
+  - enabled: 1
+    path: Assets/Scenes/RedLevel.unity
