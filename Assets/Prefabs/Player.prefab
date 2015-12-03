@@ -226,6 +226,7 @@ GameObject:
   - 143: {fileID: 14373980}
   - 114: {fileID: 11406976}
   - 82: {fileID: 8260786}
+  - 114: {fileID: 11488800}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1546,7 +1547,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150832}
   m_LocalRotation: {x: .0240758788, y: 0, z: 0, w: .999710143}
-  m_LocalPosition: {x: -.0799999237, y: 6.22000027, z: -9.70999908}
+  m_LocalPosition: {x: -.0799999237, y: 5.84000015, z: -1.91999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 412748}
@@ -1574,7 +1575,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .0384948105, g: .278018057, b: .654411793, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1765,15 +1766,13 @@ MonoBehaviour:
   model: {fileID: 461130}
   lookTransform: {fileID: 457828}
   deltaRotation: 12
+  moveDirection: {x: 0, y: 0, z: 0}
+  grounded: 0
   lookDir: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   normalDeadZone: .100000001
   UI: {fileID: 0}
-  grass1: {fileID: 8300000, guid: c6079768383dc485a9a3abea2ff92028, type: 3}
-  grass2: {fileID: 8300000, guid: 16346854c985744fd9e41a44c5a52762, type: 3}
-  grass3: {fileID: 8300000, guid: 7cd76a6f889da4557b493c05aa65ae1e, type: 3}
-  grass4: {fileID: 8300000, guid: 386d1b127731d4329bd374004f79c87a, type: 3}
-  grass5: {fileID: 8300000, guid: f8b82b8320185413691f356a885aad5e, type: 3}
+  terrain: 
 --- !u!114 &11407180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1790,6 +1789,60 @@ MonoBehaviour:
   dist: 11
   speed: 60
   yMinMax: {x: 1, y: 7}
+--- !u!114 &11488800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d9258c7a6be5e4dae2d270369ba52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: 1
+  grass:
+  - {fileID: 8300000, guid: c6079768383dc485a9a3abea2ff92028, type: 3}
+  - {fileID: 8300000, guid: 16346854c985744fd9e41a44c5a52762, type: 3}
+  - {fileID: 8300000, guid: 7cd76a6f889da4557b493c05aa65ae1e, type: 3}
+  - {fileID: 8300000, guid: 386d1b127731d4329bd374004f79c87a, type: 3}
+  - {fileID: 8300000, guid: f8b82b8320185413691f356a885aad5e, type: 3}
+  - {fileID: 8300000, guid: b60842f78244f4498a7888edf6b64dd7, type: 3}
+  - {fileID: 8300000, guid: a33eb355f67244a828c8936412cab0e0, type: 3}
+  - {fileID: 8300000, guid: f4c3c31428fd9403fa93f4c2f9e6c4bb, type: 3}
+  - {fileID: 8300000, guid: 4d26cc17a73c6425581c9b1385fa704e, type: 3}
+  water:
+  - {fileID: 8300000, guid: d256aedcf93e1da4b8083d3d800c0a38, type: 3}
+  - {fileID: 8300000, guid: 071f8fd19fa25554989cc0c48ee0b198, type: 3}
+  - {fileID: 8300000, guid: ae34af4621ef7b948a4e7547b497b222, type: 3}
+  - {fileID: 8300000, guid: 6c84186830dc3b247a84091ed5a594a5, type: 3}
+  - {fileID: 8300000, guid: aa0980c1d380329408b3af9c34e68cb9, type: 3}
+  - {fileID: 8300000, guid: ae878060b361d374882548e5a499e43a, type: 3}
+  - {fileID: 8300000, guid: d5a837432c77b4b45ba4a2d2fd82fa66, type: 3}
+  wood:
+  - {fileID: 8300000, guid: d7ec8b560fdc1944bb26567e3c482ce3, type: 3}
+  - {fileID: 8300000, guid: 25894fe5ff873ae4f91e4b5a5362f159, type: 3}
+  - {fileID: 8300000, guid: fc0f3161aab102143ad29648b7dd3296, type: 3}
+  - {fileID: 8300000, guid: 60673b1ba40d79745bd28298c267479c, type: 3}
+  - {fileID: 8300000, guid: a2647d3b451540d4caf1283b148037b4, type: 3}
+  - {fileID: 8300000, guid: df48129b322be2e49af6c14a84d4b56a, type: 3}
+  - {fileID: 8300000, guid: 05abcbae4ea56004a97570d4ce40cc43, type: 3}
+  stone:
+  - {fileID: 8300000, guid: 8bbb99754f253b74a96ccf56990cf8eb, type: 3}
+  - {fileID: 8300000, guid: b82791ed83c486c45ad0c0d94ce555a7, type: 3}
+  - {fileID: 8300000, guid: 02675f4b7810b644bafaf2594fae87c1, type: 3}
+  - {fileID: 8300000, guid: e06278a9b9b4b804598f7817b04fd005, type: 3}
+  - {fileID: 8300000, guid: 153e2f884c3ed1d448000f516112e934, type: 3}
+  - {fileID: 8300000, guid: 5eacd5b0a094fa247a0d915254532d0f, type: 3}
+  - {fileID: 8300000, guid: 69da99d974ca10242b45710d76ef0163, type: 3}
+  - {fileID: 8300000, guid: 5b49b952d4158c54f8d6932e86251146, type: 3}
+  noisyGrass:
+  - {fileID: 8300000, guid: 962787e18d507d444b3345f2c385f50e, type: 3}
+  - {fileID: 8300000, guid: 51a4994af4da18b4b9dda375a801373d, type: 3}
+  - {fileID: 8300000, guid: 5501ebaac01a44f46943bd8c7c2ded6e, type: 3}
+  - {fileID: 8300000, guid: 4719ffa060562ca4f95c589a4522d1d0, type: 3}
+  - {fileID: 8300000, guid: c2f0916a64c8e4a4eb2c1578c1a5a0b6, type: 3}
+  - {fileID: 8300000, guid: 5ebcb865f12494745a6c60df5ad94948, type: 3}
 --- !u!124 &12490316
 Behaviour:
   m_ObjectHideFlags: 1

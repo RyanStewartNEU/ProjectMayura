@@ -6,6 +6,11 @@ TagManager:
   tags:
   - FalloutCatcher
   - moving
+  - wood
+  - stone
+  - noisy grass
+  - grass
+  - water
   layers:
   - Default
   - TransparentFX

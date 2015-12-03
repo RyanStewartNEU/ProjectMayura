@@ -1569,64 +1569,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32377d9e77d9695499de2cfa47b56ad2, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &976472953 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 127780, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
-  m_PrefabInternal: {fileID: 1455414118}
---- !u!114 &976472958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 976472953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d9258c7a6be5e4dae2d270369ba52e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: 1
-  grass:
-  - {fileID: 8300000, guid: c6079768383dc485a9a3abea2ff92028, type: 3}
-  - {fileID: 8300000, guid: 16346854c985744fd9e41a44c5a52762, type: 3}
-  - {fileID: 8300000, guid: 7cd76a6f889da4557b493c05aa65ae1e, type: 3}
-  - {fileID: 8300000, guid: 386d1b127731d4329bd374004f79c87a, type: 3}
-  - {fileID: 8300000, guid: f8b82b8320185413691f356a885aad5e, type: 3}
-  - {fileID: 8300000, guid: b60842f78244f4498a7888edf6b64dd7, type: 3}
-  - {fileID: 8300000, guid: a33eb355f67244a828c8936412cab0e0, type: 3}
-  - {fileID: 8300000, guid: f4c3c31428fd9403fa93f4c2f9e6c4bb, type: 3}
-  - {fileID: 8300000, guid: 4d26cc17a73c6425581c9b1385fa704e, type: 3}
-  water:
-  - {fileID: 8300000, guid: d256aedcf93e1da4b8083d3d800c0a38, type: 3}
-  - {fileID: 8300000, guid: 071f8fd19fa25554989cc0c48ee0b198, type: 3}
-  - {fileID: 8300000, guid: ae34af4621ef7b948a4e7547b497b222, type: 3}
-  - {fileID: 8300000, guid: 6c84186830dc3b247a84091ed5a594a5, type: 3}
-  - {fileID: 8300000, guid: aa0980c1d380329408b3af9c34e68cb9, type: 3}
-  - {fileID: 8300000, guid: ae878060b361d374882548e5a499e43a, type: 3}
-  - {fileID: 8300000, guid: d5a837432c77b4b45ba4a2d2fd82fa66, type: 3}
-  wood:
-  - {fileID: 8300000, guid: d7ec8b560fdc1944bb26567e3c482ce3, type: 3}
-  - {fileID: 8300000, guid: 25894fe5ff873ae4f91e4b5a5362f159, type: 3}
-  - {fileID: 8300000, guid: fc0f3161aab102143ad29648b7dd3296, type: 3}
-  - {fileID: 8300000, guid: 60673b1ba40d79745bd28298c267479c, type: 3}
-  - {fileID: 8300000, guid: a2647d3b451540d4caf1283b148037b4, type: 3}
-  - {fileID: 8300000, guid: df48129b322be2e49af6c14a84d4b56a, type: 3}
-  - {fileID: 8300000, guid: 05abcbae4ea56004a97570d4ce40cc43, type: 3}
-  stone:
-  - {fileID: 8300000, guid: 8bbb99754f253b74a96ccf56990cf8eb, type: 3}
-  - {fileID: 8300000, guid: b82791ed83c486c45ad0c0d94ce555a7, type: 3}
-  - {fileID: 8300000, guid: 02675f4b7810b644bafaf2594fae87c1, type: 3}
-  - {fileID: 8300000, guid: e06278a9b9b4b804598f7817b04fd005, type: 3}
-  - {fileID: 8300000, guid: 153e2f884c3ed1d448000f516112e934, type: 3}
-  - {fileID: 8300000, guid: 5eacd5b0a094fa247a0d915254532d0f, type: 3}
-  - {fileID: 8300000, guid: 69da99d974ca10242b45710d76ef0163, type: 3}
-  - {fileID: 8300000, guid: 5b49b952d4158c54f8d6932e86251146, type: 3}
-  noisyGrass:
-  - {fileID: 8300000, guid: 962787e18d507d444b3345f2c385f50e, type: 3}
-  - {fileID: 8300000, guid: 51a4994af4da18b4b9dda375a801373d, type: 3}
-  - {fileID: 8300000, guid: 5501ebaac01a44f46943bd8c7c2ded6e, type: 3}
-  - {fileID: 8300000, guid: 4719ffa060562ca4f95c589a4522d1d0, type: 3}
-  - {fileID: 8300000, guid: c2f0916a64c8e4a4eb2c1578c1a5a0b6, type: 3}
-  - {fileID: 8300000, guid: 5ebcb865f12494745a6c60df5ad94948, type: 3}
 --- !u!1001 &1004037478
 Prefab:
   m_ObjectHideFlags: 0
@@ -1709,6 +1651,14 @@ Prefab:
     - target: {fileID: 400016, guid: 3cde97ee6ab6dcf48b3c31ccdeefffc4, type: 3}
       propertyPath: m_LocalScale.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 3cde97ee6ab6dcf48b3c31ccdeefffc4, type: 3}
+      propertyPath: m_TagString
+      value: stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3cde97ee6ab6dcf48b3c31ccdeefffc4, type: 3}
+      propertyPath: m_TagString
+      value: stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3cde97ee6ab6dcf48b3c31ccdeefffc4, type: 3}
@@ -1804,47 +1754,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423646, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_LocalRotation.x
-      value: .671943486
+      value: .671943426
       objectReference: {fileID: 0}
     - target: {fileID: 423646, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.588142574
+      value: -.588142514
       objectReference: {fileID: 0}
     - target: {fileID: 423646, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_LocalRotation.z
-      value: .313251317
+      value: .313251287
       objectReference: {fileID: 0}
     - target: {fileID: 423646, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .32319352
-      objectReference: {fileID: 0}
-    - target: {fileID: 499048, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.84000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 499048, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1.91999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
-      propertyPath: maxMovement
-      value: 2
+      value: .323193491
       objectReference: {fileID: 0}
     - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
       propertyPath: StartWithAll
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2027500, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: .0384948105
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: maxMovement
+      value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 2027500, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: .278018057
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027500, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: .654411793
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: walkSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
