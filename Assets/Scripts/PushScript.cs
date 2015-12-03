@@ -16,7 +16,7 @@ public class PushScript : MonoBehaviour {
 	}
 
     //if in this zone, move the player as if in high winds
-    void OnTriggerEnter(Collider col)
+    void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {

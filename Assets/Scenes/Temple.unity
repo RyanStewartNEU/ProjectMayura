@@ -1768,6 +1768,26 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -1.91999996
       objectReference: {fileID: 0}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: maxMovement
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406976, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: StartWithAll
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027500, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: .0384948105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027500, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: .278018057
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027500, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: .654411793
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c11ab87efe80cab49a3dd68707adbf20, type: 2}
   m_IsPrefabParent: 0
@@ -1859,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b1e2a0c56b8b84ebe91375e41f165a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushdirection: {x: 0, y: 0, z: -2}
+  pushdirection: {x: 0, y: 0, z: 3}
 --- !u!4 &1665774940
 Transform:
   m_ObjectHideFlags: 0
@@ -1879,7 +1899,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1665774938}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 80, y: 40, z: 100}
