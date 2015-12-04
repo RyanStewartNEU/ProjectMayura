@@ -258,33 +258,6 @@ public class FirstPersonDrifter: MonoBehaviour
     void FixedUpdate() {
 
 		
-
-		/*if (Physics.Raycast (this.transform.position, Vector3.down, 2F)) {
-			
-			RaycastHit[] hit2 = Physics.RaycastAll (this.transform.position, Vector3.down, 5F);
-			string walkingOnWhat = "Ground";
-			
-			foreach (RaycastHit hitIndiv in hit2) {
-				if (hitIndiv.collider.gameObject.name == "Water") {
-					Debug.Log ("found water below me");
-					walkingOnWhat = "Water";
-					break;
-				} else if (hitIndiv.collider.gameObject.name == "Ground") {
-					Debug.Log ("found ground below me");
-					walkingOnWhat = "Ground";
-					break;
-				}
-			}
-			
-			if (walkingOnWhat == "Water") {
-				setTerrainWater();
-				//Debug.Log ("WATER");
-			} else if (walkingOnWhat == "Ground") {
-				setTerrainGrass();
-				//Debug.Log ("GROUND");
-			}
-		}*/
-
         float inputX = Input.GetAxis("Horizontal");
         
         if(!Input.GetButton("Horizontal Key"))
@@ -319,6 +292,7 @@ public class FirstPersonDrifter: MonoBehaviour
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,
             // because that interferes with step climbing amongst other annoyances
             if (Physics.Raycast(myTransform.position, -Vector3.up, out hit, rayDistance)) {
+                Debug.Log(Vector3.Angle(hit.normal, Vector3.up));
                 if (Vector3.Angle(hit.normal, Vector3.up) > slideLimit)
                     sliding = true;
             }

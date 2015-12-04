@@ -12,12 +12,17 @@ public class CameraFollowBehind : MonoBehaviour {
 	public float speed;
 	float currentY;
 	public Vector2 yMinMax;
+	public Transform lookTransform;
+	Vector2 startDir,endDir;
+	public float rotateRate;
+	float autoRotating;
 	Vector2 axis;
 	Camera cam;
 	// Use this for initialization
 	void Start () 
 	{
-		prevPos = target.position;		
+		prevPos = target.position;
+		autoRotating = 1;		
 		cam = transform.GetComponent<Camera>();
 		transform.parent = null;
 		currentY =  transform.position.y - target.position.y;
@@ -41,31 +46,52 @@ public class CameraFollowBehind : MonoBehaviour {
         {
             axis.y = Input.GetAxis("Vertical Camera");
         }
+
+        if(autoRotating >= 1 && Input.GetButtonDown("Auto Rotate"))
+        {
+        	autoRotating = 0;
+        	Vector3 temp = (lookTransform.position - target.position).normalized;
+        	endDir = new Vector2(temp.x,temp.z); 
+        	startDir = new Vector2(target.position.x - transform.position.x,target.position.z - transform.position.z).normalized;
+        }
  	}
 
 	void FixedUpdate()
 	{
-		float change = Vector3.Distance(prevPos, target.position);
-		targetDir = new Vector2(target.position.x  - prevPos.x,target.position.z  - prevPos.z).normalized;
-		dir = new Vector2(target.position.x - transform.position.x,target.position.z - transform.position.z).normalized;
-		dir = Vector2.Lerp(dir,targetDir, 0.1f * change);
 		float yHeight =   transform.position.y - target.position.y;
-		
-		currentY += axis.y * 0.005f * speed;
-		currentY = Mathf.Min(currentY, yMinMax.y);
-		currentY = Mathf.Max(currentY, yMinMax.x);
 		if(lockY)
 		yHeight = currentY;
-
-
-		if(yHeight < yMinMax.x)
-		yHeight = yMinMax.x;
 		else
 		{
-			if(yHeight > yMinMax.y)
+			if(yHeight < yMinMax.x)
+			yHeight = yMinMax.x;
+			else
 			{
-				yHeight = yMinMax.y;
+				if(yHeight > yMinMax.y)
+				{
+					yHeight = yMinMax.y;
+				}
 			}
+		}
+		
+
+		if(autoRotating >= 1)
+		{
+			float change = Vector3.Distance(prevPos, target.position);
+			targetDir = new Vector2(target.position.x  - prevPos.x,target.position.z  - prevPos.z).normalized;		
+			dir = new Vector2(target.position.x - transform.position.x,target.position.z - transform.position.z).normalized;
+			dir = Vector2.Lerp(dir,targetDir, 1f * change);
+			dir = new Vector2(target.position.x - transform.position.x,target.position.z - transform.position.z).normalized;
+			
+			currentY += axis.y * 0.005f * speed;
+			currentY = Mathf.Min(currentY, yMinMax.y);
+			currentY = Mathf.Max(currentY, yMinMax.x);
+			
+		}
+		else
+		{
+			dir = Vector2.Lerp(startDir, endDir, autoRotating);
+			autoRotating+= rotateRate;
 		}
 		Vector3 newPos = new Vector3(target.position.x - (dir.x * dist), target.position.y + yHeight, target.position.z - (dir.y * dist));
 		float distS = Vector3.Distance(target.position, newPos);
