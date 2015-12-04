@@ -935,7 +935,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.56999969, y: 1.84000003, z: -13.3999996}
+  m_LocalPosition: {x: -15.7399998, y: 56, z: -11.3999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 461130}
@@ -1023,7 +1023,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178856}
-  m_LocalRotation: {x: .671943486, y: -.588142574, z: .313251317, w: .32319352}
+  m_LocalRotation: {x: .671943426, y: -.588142514, z: .313251287, w: .323193491}
   m_LocalPosition: {x: .00135826098, y: -.00159071945, z: -.000147222134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1627,7 +1627,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 952dbd56a8970f64692376331cf01f5f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .314999998
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   runSpeed: 30
   canDoubleJump: 0
   cam: {fileID: 0}
-  maxMovementPerFrame: 1
+  maxMovementPerFrame: 11
   maxMovement: 15
   maxDownwardSpeed: 20
   doubleJumpSpeed: 16
@@ -1765,7 +1765,7 @@ MonoBehaviour:
   jumpHold: .100000001
   model: {fileID: 461130}
   lookTransform: {fileID: 457828}
-  deltaRotation: 12
+  deltaRotation: 11
   moveDirection: {x: 0, y: 0, z: 0}
   grounded: 0
   lookDir: {x: 0, y: 0, z: 0}
@@ -1785,10 +1785,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 461130}
-  lockY: 0
-  dist: 11
-  speed: 60
-  yMinMax: {x: 1, y: 7}
+  lockY: 1
+  dist: 12
+  speed: 70
+  yMinMax: {x: 1, y: 10}
+  lookTransform: {fileID: 457828}
+  rotateRate: .0500000007
 --- !u!114 &11488800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2571,7 +2573,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: .5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 63
   m_StepOffset: .300000012
   m_SkinWidth: .0799999982
   m_MinMoveDistance: .00100000005

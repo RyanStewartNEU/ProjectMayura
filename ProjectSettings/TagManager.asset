@@ -11,6 +11,7 @@ TagManager:
   - noisy grass
   - grass
   - water
+  - Slide
   layers:
   - Default
   - TransparentFX
