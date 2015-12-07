@@ -416,6 +416,7 @@ GameObject:
   - 81: {fileID: 8135048}
   - 45: {fileID: 4569670}
   - 114: {fileID: 11407180}
+  - 114: {fileID: 11444878}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -935,13 +936,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.7399998, y: 56, z: -11.3999996}
+  m_LocalPosition: {x: 2.9000001, y: 3.35263014, z: -43.4000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 499048}
   - {fileID: 461130}
   - {fileID: 421922}
   - {fileID: 457828}
-  - {fileID: 499048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &414722
@@ -1016,14 +1017,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 412748}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &423646
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178856}
-  m_LocalRotation: {x: .671943426, y: -.588142514, z: .313251287, w: .323193491}
+  m_LocalRotation: {x: .671943486, y: -.588142574, z: .313251317, w: .32319352}
   m_LocalPosition: {x: .00135826098, y: -.00159071945, z: -.000147222134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1327,7 +1328,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 412748}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &459018
 Transform:
   m_ObjectHideFlags: 1
@@ -1352,7 +1353,7 @@ Transform:
   m_Children:
   - {fileID: 478354}
   m_Father: {fileID: 412748}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &462616
 Transform:
   m_ObjectHideFlags: 1
@@ -1547,11 +1548,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150832}
   m_LocalRotation: {x: .0240758788, y: 0, z: 0, w: .999710143}
-  m_LocalPosition: {x: -.0799999237, y: 5.84000015, z: -1.91999996}
+  m_LocalPosition: {x: -.0799999237, y: 3.51999998, z: -2.05999994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 412748}
-  m_RootOrder: 3
+  m_RootOrder: 0
 --- !u!4 &499216
 Transform:
   m_ObjectHideFlags: 1
@@ -1625,11 +1626,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300001, guid: ad79ae7c378fedd45bb03a4b93d45948,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 952dbd56a8970f64692376331cf01f5f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ce21aa2f8f96ef340bac771c7680e3b2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .314999998
+  m_Volume: .493999988
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -1722,13 +1723,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartWithAll: 0
+  startWithNone: 0
   redFeatherObject: {fileID: 105148}
-  orangeFeatherObject: {fileID: 180152}
-  yellowFeatherObject: {fileID: 140700}
-  greenFeatherObject: {fileID: 192742}
-  blueFeatherObject: {fileID: 187064}
-  purpleFeatherObject: {fileID: 113802}
-  pinkFeatherObject: {fileID: 112008}
+  orangeFeatherObject: {fileID: 122868}
+  yellowFeatherObject: {fileID: 180152}
+  greenFeatherObject: {fileID: 170004}
+  blueFeatherObject: {fileID: 140700}
+  purpleFeatherObject: {fileID: 120712}
+  pinkFeatherObject: {fileID: 192742}
   whiteFeatherMaterial: {fileID: 2100000, guid: 7b35e24aa01c91146a3e93576e8932c0,
     type: 2}
   redFeatherMaterial: {fileID: 2100000, guid: b561e63ab7c60544e8686a52a2c6c460, type: 2}
@@ -1751,10 +1753,10 @@ MonoBehaviour:
   maxMovementPerFrame: 11
   maxMovement: 15
   maxDownwardSpeed: 20
-  doubleJumpSpeed: 16
+  doubleJumpSpeed: 18
   enableRunning: 0
   jumpSpeed: 16
-  gravity: 1.20000005
+  gravity: 1.5
   slideWhenOverSlopeLimit: 1
   slideOnTaggedObjects: 0
   slideSpeed: 15
@@ -1762,7 +1764,7 @@ MonoBehaviour:
   antiBumpFactor: .75
   antiBunnyHopFactor: 1
   holdTime: .300000012
-  jumpHold: .100000001
+  jumpHold: .0799999982
   model: {fileID: 461130}
   lookTransform: {fileID: 457828}
   deltaRotation: 11
@@ -1791,6 +1793,20 @@ MonoBehaviour:
   yMinMax: {x: 1, y: 10}
   lookTransform: {fileID: 457828}
   rotateRate: .0500000007
+--- !u!114 &11444878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7316427f6adfe4e42b100c26a3a53082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInWhenSceneStarts: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTime: 6
 --- !u!114 &11488800
 MonoBehaviour:
   m_ObjectHideFlags: 1

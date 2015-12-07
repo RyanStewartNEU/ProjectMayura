@@ -9,6 +9,7 @@ public class CameraFollowBehind : MonoBehaviour {
 	Vector2 targetDir;
 	Vector3 prevPos;
 	public float dist;
+	public float minDist, maxDist;
 	public float speed;
 	float currentY;
 	public Vector2 yMinMax;

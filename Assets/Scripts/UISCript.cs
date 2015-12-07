@@ -17,7 +17,7 @@ public class UISCript : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected void Update () {
-		//
+		setFeatherCountInUI (getFeatherCountFromSaveData());
 	}
 
 	// Call this public method when the data is updated
@@ -38,7 +38,7 @@ public class UISCript : MonoBehaviour {
 
 	// Given a feather count, set the UI text
 	private void setFeatherCountInUI(int featherCount) {
-		this.featherCountUIText.text = "Feathers: " + featherCount.ToString();
+		this.featherCountUIText.text = "" + featherCount.ToString();
 		this.lastFeatherCount = featherCount;
 		Debug.Log ("set feather count as " + featherCount.ToString ());
 	}

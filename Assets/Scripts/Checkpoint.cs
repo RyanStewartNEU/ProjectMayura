@@ -17,7 +17,7 @@ public class Checkpoint : MonoBehaviour {
     {
         if(col.transform.tag == "Player")
         {
-            Debug.Log("CHECKPOINT SET");
+            //Debug.Log("CHECKPOINT SET");
             col.GetComponent<FirstPersonDrifter>().lastCheckpoint = this.transform;
         }
     }

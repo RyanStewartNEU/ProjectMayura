@@ -10,6 +10,7 @@ public class FirstPersonDrifter: MonoBehaviour
 {
     //Game Progress Variables
     public bool StartWithAll = false; //start of game, turns all feathers on, then removes them in next scene
+    public bool startWithNone = false;
     private int whiteFeatherCount = 0;
     private bool redFeather = false;
     private bool orangeFeather = false;
@@ -113,40 +114,15 @@ public class FirstPersonDrifter: MonoBehaviour
 	public UISCript UI;
 	public string terrain;
 	
-	
-	
+	void OnApplicationQuit()
+	{
+        PlayerPrefs.DeleteAll();
+    }
 
     void Start()
     {
-
-		// Doesnt work but should work
-
-		/*Debug.Log (Application.dataPath + "/Sounds/water");
-		currentTerrain = CurrentTerrain.Grass;
-		Object[] waterClipsObjs = Resources.LoadAll(Application.dataPath);
-
-		Debug.Log (waterClipsObjs.Length);
-
-		int i = 0;
-		foreach (Object clipObj in waterClipsObjs) {
-			Debug.Log ("loaded one water");
-			AudioClip clip = (AudioClip) clipObj;
-			waterClips[i] = clip;
-			i++;
-		}
-
-		Object[] grassClipsObjs = Resources.LoadAll(Application.dataPath + "/Sounds/grass", typeof(AudioClip));
-
-		i = 0;
-		foreach (Object clipObj in grassClipsObjs) {
-			Debug.Log ("loaded one grass");
-			AudioClip clip = (AudioClip) clipObj;
-			grassClips[i] = clip;
-			i++;
-		}*/
-
-		
-
+        
+	
         //Set all feathers to white
         redFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
         orangeFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
@@ -240,7 +216,10 @@ public class FirstPersonDrifter: MonoBehaviour
             //clear saves
             PlayerPrefs.DeleteAll();
         }
-
+        if(startWithNone)
+        {
+            setRedFeather(false);
+        }
 
         controller = GetComponent<CharacterController>();
         myTransform = transform;
@@ -336,8 +315,7 @@ public class FirstPersonDrifter: MonoBehaviour
          
             // Jump! But only if the jump button has been released and player has been grounded for a given number of frames
             if (!Input.GetButton("Jump"))
-            {
-            
+            {            
                 jumpTimer++;                               
             }
             else if (jumpTimer >= antiBunnyHopFactor) 
@@ -472,15 +450,19 @@ public class FirstPersonDrifter: MonoBehaviour
         
         float tempWalking = new Vector2(actualMovement.x, actualMovement.z).magnitude * Time.deltaTime;
    
+        //Debug.Log(actualMovement);
         // Move the controller, and set grounded true or false depending on whether we're standing on something
         grounded = (controller.Move(actualMovement * Time.deltaTime) & CollisionFlags.Below) != 0;
         float turnSpeed = new Vector2(moveDirection.x,moveDirection.z).magnitude;
         if(turnSpeed != 0 )
         {          
             Vector2 dir = new Vector2(moveDirection.x,moveDirection.z).normalized;
+            Vector3 dir3d = lookTransform.position - model.position;
+            Vector2 flatDir = new Vector2(dir3d.x,dir3d.z).normalized;
+            float change = (dir - flatDir).magnitude * 1000;
             lookDir = Vector3.RotateTowards(model.forward, new Vector3(dir.x, 0 , dir.y), deltaRotation * Time.deltaTime * (turnSpeed / speed) , 1F);
             lookTransform.position = model.position + lookDir;
-            
+            if(change > 4)
             model.LookAt(lookTransform.position);
             //model.rotation = Quaternion.LookRotation(lookDir.normalized, groundNormal);
             //lookDir = moveDirection.normalized;
@@ -558,15 +540,18 @@ public class FirstPersonDrifter: MonoBehaviour
     public void setRedFeather(bool set)
     {
         redFeather = set;
-        canDoubleJump = true;
+        canDoubleJump = set;
+        enableRunning = set;
         if (set)
         {
             redFeatherObject.GetComponent<Renderer>().material = redFeatherMaterial;
+            redFeatherObject.SetActive(true);
             PlayerPrefs.SetInt("RedFeather", 1);
         }
         else
         {
             redFeatherObject.GetComponent<Renderer>().material = whiteFeatherMaterial;
+            redFeatherObject.SetActive(false);
             PlayerPrefs.SetInt("RedFeather", 0);
         }
     }

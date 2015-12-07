@@ -109,7 +109,7 @@ public class FootStepper : MonoBehaviour {
 		
 		sound = clips[randInt];
 
-		AudioSource.PlayClipAtPoint (sound, this.transform.position, volume);
+		AudioSource.PlayClipAtPoint (sound, Camera.main.transform.position, volume);
 	}
 
 	
